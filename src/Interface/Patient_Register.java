@@ -15,7 +15,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import pojosKidney.Patient;
-import pojosKidney.Utilities;
+import Utilities.Utilities;
+import pojosKidney.PatientSimple;
 import pojosKidney.Sex;
 
 /**
@@ -323,10 +324,11 @@ public class Patient_Register extends javax.swing.JFrame {
             boolean isNum= Utilities.checkInt(this.inputAge.getText());
             if(isNum){
                 this.errorAge.setVisible(false);
-                Patient_FirstWindow.p= new Patient();
+                Patient_FirstWindow.p= new PatientSimple();
                 Patient_FirstWindow.p.setName(this.inputName.getText());
                 Patient_FirstWindow.p.setEmail(this.inputEmail.getText());
                 Patient_FirstWindow.p.setPas(hash);
+                System.out.println(Patient_FirstWindow.p.pas);
                 if(this.inputGender.getSelectedIndex()==0){
                     Patient_FirstWindow.p.setSex(Sex.NA);
                 } else if(this.inputGender.getSelectedIndex()==1){
@@ -335,7 +337,9 @@ public class Patient_Register extends javax.swing.JFrame {
                     Patient_FirstWindow.p.setSex(Sex.WOMAN);
                 }
             System.out.println("Patient:" + Patient_FirstWindow.p );
-            Menu rd = new Menu();
+            //poner un if a lo mejor si hay problemas
+            Patient_FirstWindow.patientManager.createPatientSimple(Patient_FirstWindow.p);
+            Menu rd = new Menu();//añadir a número de test del paciente cuando le de a nuevo test
             this.setVisible(false);
             rd.setVisible(true);
             }

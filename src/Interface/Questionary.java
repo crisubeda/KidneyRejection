@@ -16,7 +16,8 @@ import javax.swing.JLabel;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import pojosKidney.Patient;
-import pojosKidney.Utilities;
+import Utilities.Utilities;
+import pojosKidney.PatientSimple;
 
 /**
  *
@@ -26,7 +27,8 @@ import pojosKidney.Utilities;
 public class Questionary extends javax.swing.JFrame {
     String [] quest= new String [8];
     boolean [] answ= new boolean[8];
-    public static Patient p= new Patient();
+    public static PatientSimple p = new PatientSimple(); 
+    public static Patient p2 = new Patient();
     int cont=0;
    
            
@@ -261,13 +263,14 @@ public class Questionary extends javax.swing.JFrame {
         }
        if(cont==6){
            this.NextBut.setText("Finish");
+           //aqui deberiamos sumar uno al contador de tests del PatientSimple
        }else{
             this.NextBut.setText("Next");
        }
        if(cont==7){
            System.out.println("Estamos ya introduciendo ha terminado no??");
            System.out.println(answ[0]);
-           p=Utilities.introd(answ);
+           p2 = Utilities.introd(answ);
            Solution rd = new Solution();
            this.setVisible(false);
            rd.setVisible(true);

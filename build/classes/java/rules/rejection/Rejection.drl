@@ -1,0 +1,86 @@
+
+import pojosKidney.Donor
+import pojosKidney.Patient
+import pojosKidney.TimeOutOrganism
+import pojosKidney.HLAIncompatibility
+import pojosKidney.FibrinoidNecrosis
+import pojosKidney.IL10andTNF
+
+
+rule "v1"
+    salience 7 //create priority 1
+    dialect "java"
+    when
+        p1 : Patient ( donor == Donor.DEAD )
+    then
+        p1.setProb(((1-0.25)*0.1)+0.25);
+end
+
+rule "v2"
+    salience 6 //create priority 1
+    dialect "java"
+    when
+        p1 : Patient ( timeOutOrganism == TimeOutOrganism.MORE19 )
+    then
+        p1.setProb(((1-p1.getProb())*0.9)+p1.getProb());
+end
+
+rule "v3"
+    salience 5 //create priority 1
+    dialect "java"
+    when
+        p1 : Patient (timeFromTransplant == TimeFromTransplant.LESS2WEEKS)
+    then
+        p1.setProb(((1-p1.getProb())*0.75)+p1.getProb());
+end
+
+rule "v4" 
+    salience 4 
+    dialect "java" 
+    when 
+        p1 : Patient ( timeFromTransplant == TimeFromTransplant.MORE2WEEKS ) 
+    then 
+         p1.setProb(((1-p1.getProb())*0.1)+p1.getProb()); 
+       
+end
+
+rule "v5"
+    salience 4 
+    dialect "java"
+    when
+        p1 : Patient ( donorsCreatinine == DonorsCreatinine.MORE2_5 )
+    then
+        p1.setProb(((1-p1.getProb())*0.3)+p1.getProb());
+
+end
+
+
+
+rule "v6"
+    salience 3 
+    dialect "java"
+    when
+        p1 : Patient ( hlaIncompatibility == HLAIncompatibility.YES)
+    then
+        p1.setProb(((1-p1.getProb())*0.11)+p1.getProb());
+end
+
+//FibrinoidNecrosis fibrinoidNecrosis
+rule "v7"
+    salience 2 
+    dialect "java"
+    when
+        p1 : Patient ( fibrinoidNecrosis == FibrinoidNecrosis.YES)
+    then
+        p1.setProb(((1-p1.getProb())*0.4)+p1.getProb());
+end
+
+//IL10andTNF il10andTNF
+rule "v8"
+    salience 1 
+    dialect "java"
+    when
+        p1 : Patient ( il10andTNF == IL10andTNF.YES)
+    then
+        p1.setProb(((1-p1.getProb())*0.9)+p1.getProb());
+end

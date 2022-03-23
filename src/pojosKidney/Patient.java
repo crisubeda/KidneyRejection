@@ -15,12 +15,6 @@ import java.util.Objects;
 
 public class Patient {
     
-    public String name;
-    
-    public String email;
-    public int edad;
-    public Sex sex;
-    public byte[] pas;
     private Donor donor; 
     private TimeOutOrganism timeOutOrganism;
     private TimeFromTransplant timeFromTransplant;
@@ -30,11 +24,7 @@ public class Patient {
     private IL10andTNF il10andTNF;
     public double prob;
 
-    public Patient(String name, String email, int edad, Sex sex, Donor donor, TimeOutOrganism timeOutOrganism, TimeFromTransplant timeFromTransplant, DonorsCreatinine donorsCreatinine, HLAIncompatibility hlaIncompatibility, FibrinoidNecrosis fibrinoidNecrosis, IL10andTNF il10andTNF, double prob) {
-        this.name = name;
-        this.email = email;
-        this.edad = edad;
-        this.sex = sex;
+    public Patient(Donor donor, TimeOutOrganism timeOutOrganism, TimeFromTransplant timeFromTransplant, DonorsCreatinine donorsCreatinine, HLAIncompatibility hlaIncompatibility, FibrinoidNecrosis fibrinoidNecrosis, IL10andTNF il10andTNF, double prob) {
         this.donor = donor;
         this.timeOutOrganism = timeOutOrganism;
         this.timeFromTransplant = timeFromTransplant;
@@ -45,19 +35,7 @@ public class Patient {
         this.prob = prob;
     }
 
-    public Patient(String name, byte[] pas, String email, int edad, Sex sex) {
-        this.name = name;
-        this.email = email;
-        this.edad = edad;
-        this.sex = sex;
-    }
-
-
     public Patient() {
-        this.name="";
-        this.email="";
-        this.edad=10;
-        this.sex= Sex.MAN;
         this.donor = Donor.DEAD;
         this.timeOutOrganism = TimeOutOrganism.LESS19;
         this.timeFromTransplant = TimeFromTransplant.LESS2WEEKS;
@@ -80,23 +58,6 @@ public class Patient {
      * @param price
      * @param limit
      */
-    
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-
-    public Sex getSex() {
-        return sex;
-    }
 
     public Donor getDonor() {
         return donor;
@@ -129,23 +90,6 @@ public class Patient {
      public double getProb() {
         return prob;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public void setSex(Sex sex) {
-        this.sex = sex;
-    }
-
      
     public void setProb(double prob) {
         this.prob = prob;
@@ -178,15 +122,6 @@ public class Patient {
     public void setIl10andTNF(IL10andTNF il10andTNF) {
         this.il10andTNF = il10andTNF;
     }
-
-    public byte[] getPas() {
-        return pas;
-    }
-
-    public void setPas(byte[] pas) {
-        this.pas = pas;
-    }
-    
 
     @Override
     public int hashCode() {
@@ -236,7 +171,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" + "name=" + name + ", email=" + email + ", edad=" + edad + ", sex=" + sex + ", pas=" + pas + ", donor=" + donor + ", timeOutOrganism=" + timeOutOrganism + ", timeFromTransplant=" + timeFromTransplant + ", donorsCreatinine=" + donorsCreatinine + ", hlaIncompatibility=" + hlaIncompatibility + ", fibrinoidNecrosis=" + fibrinoidNecrosis + ", il10andTNF=" + il10andTNF + ", prob=" + prob + '}';
+        return "Patient{" + "donor=" + donor + ", timeOutOrganism=" + timeOutOrganism + ", timeFromTransplant=" + timeFromTransplant + ", donorsCreatinine=" + donorsCreatinine + ", hlaIncompatibility=" + hlaIncompatibility + ", fibrinoidNecrosis=" + fibrinoidNecrosis + ", il10andTNF=" + il10andTNF + ", prob=" + prob + '}';
     }
 
     

@@ -4,6 +4,9 @@
  */
 package Interface;
 import static Interface.Doctor_FirstWindow.patient;
+import db.interfaces.DBManager;
+import db.interfaces.PatientManager;
+import db.sql.SQLManager;
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -14,6 +17,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import pojosKidney.Patient;
+import pojosKidney.PatientSimple;
 
 /**
  *
@@ -22,13 +26,19 @@ import pojosKidney.Patient;
 
 
 public class Patient_FirstWindow extends javax.swing.JFrame {
-public static Patient p;
+public static PatientSimple p;
+public static Patient p2;
+public static PatientManager patientManager;
+public static DBManager dbManager;
     /**
      * Creates new form FirstWindow
      */
     public Patient_FirstWindow() {
         initComponents();
-        p = new Patient();
+        p = new PatientSimple();
+        dbManager = new SQLManager();
+        dbManager.connect();
+        patientManager = dbManager.getPatientManager();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
       

@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import pojosKidney.Patient;
-import pojosKidney.Utilities;
+import Utilities.Utilities;
 
 /**
  *
@@ -37,9 +37,9 @@ public class Solution extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        int prob= (int)(Questionary.p.getProb()*100);
+        int prob= (int)(Questionary.p2.getProb()*100);
         System.out.println("Prob en int:" + prob);
-        double perc=Questionary.p.getProb()*100;
+        double perc=Questionary.p2.getProb()*100;
         this.probText.setText(" " + perc+ "%");
         this.probBar.setValue(prob);
      

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pojosKidney;
+package Utilities;
 
 
 import java.util.regex.Matcher;
@@ -10,6 +10,15 @@ import java.util.regex.Pattern;
 import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
+import pojosKidney.Donor;
+import pojosKidney.DonorsCreatinine;
+import pojosKidney.FibrinoidNecrosis;
+import pojosKidney.HLAIncompatibility;
+import pojosKidney.IL10andTNF;
+import pojosKidney.Patient;
+import pojosKidney.PatientSimple;
+import pojosKidney.TimeFromTransplant;
+import pojosKidney.TimeOutOrganism;
 
 /**
  *
@@ -47,7 +56,7 @@ public  class Utilities {
             p.setIl10andTNF(IL10andTNF.YES);
         }
         
-        System.out.println("Patient:"+p);
+        System.out.println("Patient:" + p);
         execute(ks, kc, p);
         return p;
     }
@@ -98,5 +107,7 @@ public  class Utilities {
         return isInt;
     }
     
-
+    public static int getPatientSimpleID(PatientSimple p){
+     return p.getID();
+    }
 }
