@@ -15,7 +15,10 @@ import pojosKidney.PatientSimple;
 public interface PatientManager {
 
     public void createPatientSimple(PatientSimple pat);
-
+    public void initializeParameters(String p);
+    public void sendParameters();
+    public void initializeOptionsWeights(String option, float weight);
+    public void sendOptions();
  //   public Patient getPatientById(int id);
 
   //  public Patient getPatientByUsername(String Username);

@@ -8,6 +8,7 @@ package db.sql;
 import static Interface.Doctor_FirstWindow.patient;
 import static Interface.Patient_FirstWindow.patientManager;
 import Utilities.ConnectionDatabase;
+import Utilities.Utilities;
 import db.interfaces.*;
 import java.io.IOException;
 import java.sql.*;
@@ -33,7 +34,7 @@ public class SQLManager implements DBManager {
     public PatientManager getPatientManager() {
         return patientManager;
     }
-
+    
 
     @Override
     public void connect() {
@@ -48,6 +49,7 @@ public class SQLManager implements DBManager {
                 Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
             }
             patientManager = new SQLPatientManager(c);
+          
             //file = new SQLFilesManager(c);
         } catch (ClassNotFoundException exc) {
             exc.printStackTrace();
@@ -55,6 +57,7 @@ public class SQLManager implements DBManager {
         } catch (SQLException ex) {
             Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
     }
 
     @Override

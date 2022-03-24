@@ -7,6 +7,7 @@ import static Interface.Doctor_FirstWindow.patient;
 import db.interfaces.DBManager;
 import db.interfaces.PatientManager;
 import db.sql.SQLManager;
+import db.sql.SQLPatientManager;
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -30,15 +31,18 @@ public static PatientSimple p;
 public static Patient p2;
 public static PatientManager patientManager;
 public static DBManager dbManager;
+
     /**
      * Creates new form FirstWindow
      */
     public Patient_FirstWindow() {
         initComponents();
         p = new PatientSimple();
-        dbManager = new SQLManager();
-        dbManager.connect();
-        patientManager = dbManager.getPatientManager();
+        //dbManager = new SQLManager();
+        //dbManager.connect();
+        
+        //patientManager = dbManager.getPatientManager();
+       // patientManager.sendParameters();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
       

@@ -44,5 +44,60 @@ public class SQLPatientManager implements PatientManager {
         }
     }
     
+    @Override
+   public void initializeParameters(String parameter){
+    String sqlpatient = "INSERT INTO Parameters (information)"
+                + "VALUES (?)";
+        try {
+            PreparedStatement stm = c.prepareStatement(sqlpatient);
+            stm.setString(1, parameter);
+            stm.executeUpdate();
+            stm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
    
+    public void initializeOptionsWeights(String option, float weight){
+     String sqlpatient = "INSERT INTO OptionsWeights (opt, weight)"
+                + "VALUES (?,?)";
+        try {
+            PreparedStatement stm = c.prepareStatement(sqlpatient);
+            stm.setString(1, option);
+            stm.setFloat(2, weight);
+            stm.executeUpdate();
+            stm.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+   
+    @Override
+   public void sendParameters(){
+        initializeParameters("Donor");
+        initializeParameters("TimeOutOrganism");
+        initializeParameters("TimeFromTransplant");
+        initializeParameters("DonorsCreatinine");
+        initializeParameters("HLAIncompatibility");
+        initializeParameters("FibrinoidNecrosis");
+        initializeParameters("IL10andTNF");
+    }
+   
+   public void sendOptions(){
+       initializeOptionsWeights("ALIVE",0);
+       initializeOptionsWeights("DEAD", (float) 0.1);
+       initializeOptionsWeights("LESS19",0);
+       initializeOptionsWeights("MORE19", (float) 0.9);
+       initializeOptionsWeights("LESS2WEEKS",(float) 0.75);
+       initializeOptionsWeights("MORE2WEEKS",(float) 0.1);
+       initializeOptionsWeights("LESS2_5",0);
+       initializeOptionsWeights("MORE2_5",(float) 0.3);
+       initializeOptionsWeights("YES",(float) 0.11);//HLAIncompatibility
+       initializeOptionsWeights("NO",0);
+       initializeOptionsWeights("YES",(float) 0.4);//FibrinoidNecrosis
+       initializeOptionsWeights("NO",0);
+       initializeOptionsWeights("YES",(float) 0.9);//IL10andTNF
+       initializeOptionsWeights("NO",0);
+   }
 }

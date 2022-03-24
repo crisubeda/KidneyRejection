@@ -5,6 +5,7 @@
 package Utilities;
 
 
+import db.interfaces.PatientManager;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.kie.api.KieServices;
@@ -19,6 +20,7 @@ import pojosKidney.Patient;
 import pojosKidney.PatientSimple;
 import pojosKidney.TimeFromTransplant;
 import pojosKidney.TimeOutOrganism;
+import db.sql.*;
 
 /**
  *
@@ -26,6 +28,7 @@ import pojosKidney.TimeOutOrganism;
  */
 public  class Utilities {
     //Patient p = new Patient();
+    //private static SQLPatientManager patientManager;
     public static Patient introd(boolean[] ans){
         
         KieServices ks = KieServices.Factory.get();
@@ -57,6 +60,7 @@ public  class Utilities {
         }
         
         System.out.println("Patient:" + p);
+        
         execute(ks, kc, p);
         return p;
     }
@@ -110,4 +114,7 @@ public  class Utilities {
     public static int getPatientSimpleID(PatientSimple p){
      return p.getID();
     }
+
+  
+
 }
