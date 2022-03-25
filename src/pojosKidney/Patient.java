@@ -40,9 +40,9 @@ public class Patient {
         this.timeOutOrganism = TimeOutOrganism.LESS19;
         this.timeFromTransplant = TimeFromTransplant.LESS2WEEKS;
         this.donorsCreatinine = DonorsCreatinine.LESS2_5;
-        this.hlaIncompatibility = HLAIncompatibility.NO;
-        this.fibrinoidNecrosis = FibrinoidNecrosis.NO;
-        this.il10andTNF = IL10andTNF.NO;
+        this.hlaIncompatibility = HLAIncompatibility.NO_HLA;
+        this.fibrinoidNecrosis = FibrinoidNecrosis.NO_FibrinoidNecrosis;
+        this.il10andTNF = IL10andTNF.NO_IL10andTNF;
         this.prob=0.25F;
     }
 

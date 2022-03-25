@@ -10,5 +10,5 @@ package pojosKidney;
  * @author alberto.gildelafuent
  */
 public enum IL10andTNF {
-    YES, NO;
+    YES_IL10andTNF, NO_IL10andTNF;
 }

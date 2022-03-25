@@ -30,8 +30,8 @@ import pojosKidney.TimeOutOrganism;
  */
 public class Utilities {
 
-    public static PatientManager patientManager;
-    public static DBManager dbManager;
+    //public static PatientManager patientManager;
+    //public static DBManager dbManager;
     //dbManager = new SQLManager();
     //dbManager.connect();
 
@@ -57,13 +57,13 @@ public class Utilities {
             p.setDonorsCreatinine(DonorsCreatinine.MORE2_5);
         }
         if (ans[4]) {
-            p.setHlaIncompatibility(HLAIncompatibility.YES);
+            p.setHlaIncompatibility(HLAIncompatibility.YES_HLA);
         }
         if (ans[5]) {
-            p.setFibrinoidNecrosis(FibrinoidNecrosis.YES);
+            p.setFibrinoidNecrosis(FibrinoidNecrosis.YES_FibrinoidNecrosis);
         }
         if (ans[6]) {
-            p.setIl10andTNF(IL10andTNF.YES);
+            p.setIl10andTNF(IL10andTNF.YES_IL10andTNF);
         }
 
         System.out.println("Patient:" + p);
@@ -134,31 +134,31 @@ public class Utilities {
         return parameters;
     }
 
-    public static int[] IDsOptionsCollection(String[] options) {
+    public static int[] IDsOptionsCollection(String[] options, PatientManager patientManager) {
         System.out.println("Java opstions" + options[0]);
         int[] IDs = new int[7];
         int i;
         for (i = 0; i < 7; i++) {
-            IDs[i] = Utilities.patientManager.ReturnIDoptions(options[i]);
+            IDs[i] = patientManager.ReturnIDoptions(options[i]);
         }
         return IDs;
     }
 
-    public static int[] IDsParametersCollection() {
+    public static int[] IDsParametersCollection(PatientManager patientManager) {
 
         String[] parameterList = new String[]{"Donor", "TimeOutOrganism", "TimeFromTransplant", "DonorsCreatinine",
             "HLAIncompatibility", "FibrinoidNecrosis", "IL10andTNF"};
         int[] IDs = new int[7];
         int i;
         for (i = 0; i < 7; i++) {
-            IDs[i] = Utilities.patientManager.ReturnIDparameter(parameterList[i]);
+            IDs[i] = patientManager.ReturnIDparameter(parameterList[i]);
         }
         return IDs;
     }
 
-    public static void insertIDs(int idPatient, int[] idOptions, int[] idParameters) {
+    public static void insertIDs(int idPatient, int[] idOptions, int[] idParameters, PatientManager patientManager) {
         for (int i = 0; i < idOptions.length; i++) {
-            Utilities.patientManager.createPatientParameters(idPatient, idOptions[i], idParameters[i]);
+            patientManager.createPatientParameters(idPatient, idOptions[i], idParameters[i]);
         }
     }
 }

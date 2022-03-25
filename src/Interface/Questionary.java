@@ -284,10 +284,10 @@ public class Questionary extends javax.swing.JFrame {
            
            //Obtaining IDsOptions:        
            String [] options = AssignementsOptions(p2);
-           int[] IDoptions = IDsOptionsCollection(options);
+           int[] IDoptions = IDsOptionsCollection(options, Patient_FirstWindow.patientManager);
            
            //Obtaining IDsParameters:
-           int[] IDParameters = IDsParametersCollection();
+           int[] IDParameters = IDsParametersCollection(Patient_FirstWindow.patientManager);
            
            Solution rd = new Solution();
            rd.setID(ID);

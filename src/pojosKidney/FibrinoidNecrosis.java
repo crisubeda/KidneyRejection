@@ -10,5 +10,5 @@ package pojosKidney;
  * @author alberto.gildelafuent
  */
 public enum FibrinoidNecrosis {
-    YES, NO;
+    YES_FibrinoidNecrosis, NO_FibrinoidNecrosis;
 }

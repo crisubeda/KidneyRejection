@@ -24,6 +24,8 @@ public interface PatientManager {
     public Integer ReturnIDoptions(String option);
     public Integer ReturnIDparameter(String parameter);
     public void createPatientParameters(int idPatient, int idOptions, int idParameters);
+    public void modifyNtest(int id_patient);
+    public int takeNtest(int id_patient);
  //   public Patient getPatientById(int id);
 
   //  public Patient getPatientByUsername(String Username);

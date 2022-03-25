@@ -10,5 +10,5 @@ package pojosKidney;
  * @author alberto.gildelafuent
  */
 public enum HLAIncompatibility {
-    YES, NO;
+    YES_HLA, NO_HLA;
 }

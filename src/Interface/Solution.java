@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
@@ -22,12 +23,12 @@ import Utilities.Utilities;
  *
  * @author carmen
  */
-
 public class Solution extends javax.swing.JFrame {
-    String [] quest= new String [6];
-    boolean [] answ= new boolean[6];
+
+    String[] quest = new String[6];
+    boolean[] answ = new boolean[6];
     Patient p = new Patient();
-    int cont=0;
+    int cont = 0;
     private int ID;
     private int[] IDsOptions;
     private int[] IDsParameters;
@@ -54,9 +55,8 @@ public class Solution extends javax.swing.JFrame {
 
     public void setID(int ID) {
         this.ID = ID;
-    }  
-   
-           
+    }
+
     /**
      * Creates new form FirstWindow
      */
@@ -64,13 +64,12 @@ public class Solution extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        int prob= (int)(Questionary.p2.getProb()*100);
+        int prob = (int) (Questionary.p2.getProb() * 100);
         System.out.println("Prob en int:" + prob);
-        double perc=Questionary.p2.getProb()*100;
-        this.probText.setText(" " + perc+ "%");
+        double perc = Questionary.p2.getProb() * 100;
+        this.probText.setText(" " + perc + "%");
         this.probBar.setValue(prob);
-        
-     
+
     }
 
     /**
@@ -179,7 +178,13 @@ public class Solution extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
-        Utilities.insertIDs(ID, IDsOptions, IDsParameters);
+        Patient_FirstWindow.patientManager.modifyNtest(ID);
+        Utilities.insertIDs(ID, IDsOptions, IDsParameters, Patient_FirstWindow.patientManager);
+
+        Menu rd = new Menu();
+        rd.setID(ID);
+        this.setVisible(false);
+        rd.setVisible(true);
     }//GEN-LAST:event_SaveButActionPerformed
 
     /**

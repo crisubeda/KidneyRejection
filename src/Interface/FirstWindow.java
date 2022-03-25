@@ -42,7 +42,7 @@ public class FirstWindow extends javax.swing.JFrame {
     //The next 2 lines were executed only one time for creating the static tables in our database
         //patientManager.sendParameters(); -> this function is going to fill the description column of the
         //parameter table
-        //patientManager.sendOptions();  -> this function is going to fill the options and weight columns of the
+        //patientManager.sendOptions(); // -> this function is going to fill the options and weight columns of the
         //optionsWeight table
     }
 
