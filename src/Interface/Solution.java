@@ -28,6 +28,33 @@ public class Solution extends javax.swing.JFrame {
     boolean [] answ= new boolean[6];
     Patient p = new Patient();
     int cont=0;
+    private int ID;
+    private int[] IDsOptions;
+    private int[] IDsParameters;
+
+    public int[] getIDsOptions() {
+        return IDsOptions;
+    }
+
+    public void setIDsOptions(int[] IDsOptions) {
+        this.IDsOptions = IDsOptions;
+    }
+
+    public int[] getIDsParameters() {
+        return IDsParameters;
+    }
+
+    public void setIDsParameters(int[] IDsParameters) {
+        this.IDsParameters = IDsParameters;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }  
    
            
     /**
@@ -42,6 +69,7 @@ public class Solution extends javax.swing.JFrame {
         double perc=Questionary.p2.getProb()*100;
         this.probText.setText(" " + perc+ "%");
         this.probBar.setValue(prob);
+        
      
     }
 
@@ -151,7 +179,7 @@ public class Solution extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
-        // guardar en base de datos. 
+        Utilities.insertIDs(ID, IDsOptions, IDsParameters);
     }//GEN-LAST:event_SaveButActionPerformed
 
     /**

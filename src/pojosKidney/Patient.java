@@ -173,8 +173,29 @@ public class Patient {
     public String toString() {
         return "Patient{" + "donor=" + donor + ", timeOutOrganism=" + timeOutOrganism + ", timeFromTransplant=" + timeFromTransplant + ", donorsCreatinine=" + donorsCreatinine + ", hlaIncompatibility=" + hlaIncompatibility + ", fibrinoidNecrosis=" + fibrinoidNecrosis + ", il10andTNF=" + il10andTNF + ", prob=" + prob + '}';
     }
-
+    public String donorString(Donor donor){
+        return "" + donor ;
+    }
+    public String timeOutOrganismString(TimeOutOrganism timeOutOrganism){
+        return "" + timeOutOrganism ;
+    }
+    public String timeFromTransplantString(TimeFromTransplant timeFromTransplant){
+        return "" + timeFromTransplant ;
+    }
+    public String donorsCreatinineString(DonorsCreatinine donorsCreatinine){
+        return "" + donorsCreatinine;
+    }
+    public String hlaIncompatibilityString(HLAIncompatibility hlaIncompatibility){
+        return "" + hlaIncompatibility ;
+    }
     
-
+    public String fibrinoidNecrosisString(FibrinoidNecrosis fibrinoidNecrosis){
+        return "" + fibrinoidNecrosis ;
+    }
+    public String IL10andTNFString(IL10andTNF il10andTNF){
+        return "" + il10andTNF ;
+    }
+    
+    
     
 }

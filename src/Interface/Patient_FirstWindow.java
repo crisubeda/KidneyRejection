@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
+
 import static Interface.Doctor_FirstWindow.patient;
+import Utilities.Utilities;
 import db.interfaces.DBManager;
 import db.interfaces.PatientManager;
 import db.sql.SQLManager;
@@ -12,6 +14,8 @@ import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -24,13 +28,12 @@ import pojosKidney.PatientSimple;
  *
  * @author carmen
  */
-
-
 public class Patient_FirstWindow extends javax.swing.JFrame {
-public static PatientSimple p;
-public static Patient p2;
-public static PatientManager patientManager;
-public static DBManager dbManager;
+
+    public static PatientSimple p;
+    public static Patient p2;
+    public static PatientManager patientManager;
+    public static DBManager dbManager;
 
     /**
      * Creates new form FirstWindow
@@ -38,14 +41,16 @@ public static DBManager dbManager;
     public Patient_FirstWindow() {
         initComponents();
         p = new PatientSimple();
+        this.errorText.setVisible(false);
+        this.errorText1.setVisible(false);
         //dbManager = new SQLManager();
         //dbManager.connect();
-        
+
         //patientManager = dbManager.getPatientManager();
-       // patientManager.sendParameters();
+        // patientManager.sendParameters();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-      
+
     }
 
     /**
@@ -63,11 +68,13 @@ public static DBManager dbManager;
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         inputName = new javax.swing.JTextField();
-        inputPass = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         reg_but = new javax.swing.JButton();
         go_but = new javax.swing.JButton();
         back_but = new javax.swing.JButton();
+        errorText = new javax.swing.JLabel();
+        errorText1 = new javax.swing.JLabel();
+        intputPa = new javax.swing.JPasswordField();
 
         inputText.setBackground(new java.awt.Color(208, 226, 217));
         inputText.setFont(new java.awt.Font("STKaiti", 0, 13)); // NOI18N
@@ -96,15 +103,6 @@ public static DBManager dbManager;
         inputName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputNameActionPerformed(evt);
-            }
-        });
-
-        inputPass.setBackground(new java.awt.Color(252, 238, 238));
-        inputPass.setFont(new java.awt.Font("STKaiti", 0, 13)); // NOI18N
-        inputPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102), 5));
-        inputPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputPassActionPerformed(evt);
             }
         });
 
@@ -141,38 +139,59 @@ public static DBManager dbManager;
             }
         });
 
+        errorText.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        errorText.setForeground(new java.awt.Color(102, 0, 102));
+        errorText.setText("Incorrect email/password!!");
+
+        errorText1.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        errorText1.setForeground(new java.awt.Color(102, 0, 102));
+        errorText1.setText("Incorrect email/password!!");
+
+        intputPa.setBackground(new java.awt.Color(252, 238, 238));
+        intputPa.setFont(new java.awt.Font("STKaiti", 0, 13)); // NOI18N
+        intputPa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102), 5));
+
         javax.swing.GroupLayout panelPLayout = new javax.swing.GroupLayout(panelP);
         panelP.setLayout(panelPLayout);
         panelPLayout.setHorizontalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelPLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelPLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inputPass, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelPLayout.createSequentialGroup()
-                                .addComponent(reg_but, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)))))
-                .addGap(25, 25, 25))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(192, 192, 192))
             .addGroup(panelPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192))))
+            .addGroup(panelPLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(intputPa)
+                        .addGap(25, 25, 25))
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addComponent(reg_but, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                        .addComponent(errorText, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                        .addComponent(errorText1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,15 +200,19 @@ public static DBManager dbManager;
                 .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorText1, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(intputPa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorText, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reg_but, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -235,10 +258,6 @@ public static DBManager dbManager;
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNameActionPerformed
 
-    private void inputPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputPassActionPerformed
-
     private void reg_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reg_butActionPerformed
         Patient_Register rd = new Patient_Register();
         this.setVisible(false);
@@ -246,11 +265,40 @@ public static DBManager dbManager;
     }//GEN-LAST:event_reg_butActionPerformed
 
     private void go_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_butActionPerformed
-       // ver si esta bien en la base de datos con la contraseña y tal
-       // si esta bien pues pasamos a menu
-        Menu rd = new Menu();
-        this.setVisible(false);
-        rd.setVisible(true);  
+
+        int id = 0;
+        boolean isEmail = Utilities.checkEmail(this.inputName.getText());
+        if (!isEmail) {
+            this.errorText1.setVisible(true);
+        } else {
+            this.errorText1.setVisible(false);
+            MessageDigest md;
+            try {
+                md = MessageDigest.getInstance("MD5");
+                byte[] by = new byte[this.intputPa.getPassword().length];
+                for (int i = 0; i < this.intputPa.getPassword().length; i++) {
+                    by[i] = (byte) this.intputPa.getPassword()[i];
+                }
+                md.update(by);
+                byte[] hash = md.digest();
+
+                /*Patient_FirstWindow.p = new PatientSimple();
+                Patient_FirstWindow.p.setEmail(this.inputName.getText());
+                Patient_FirstWindow.p.setPas(hash);*/
+                id = Patient_FirstWindow.patientManager.checkPassword(this.inputName.getText(), hash);
+                if(id==0){
+                    this.errorText.setVisible(true);
+                }else{
+                    this.errorText.setVisible(false);
+                    Menu rd = new Menu();
+                    rd.setID(id);
+                    this.setVisible(false);
+                    rd.setVisible(true);
+                }
+            } catch (NoSuchAlgorithmException ex) {
+                Logger.getLogger(Patient_FirstWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_go_butActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
@@ -297,10 +345,12 @@ public static DBManager dbManager;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton back_but;
+    private javax.swing.JLabel errorText;
+    private javax.swing.JLabel errorText1;
     private javax.swing.JButton go_but;
     private javax.swing.JTextField inputName;
-    private javax.swing.JTextField inputPass;
     private javax.swing.JTextField inputText;
+    private javax.swing.JPasswordField intputPa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

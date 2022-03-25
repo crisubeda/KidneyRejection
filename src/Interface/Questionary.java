@@ -17,6 +17,9 @@ import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import pojosKidney.Patient;
 import Utilities.Utilities;
+import static Utilities.Utilities.AssignementsOptions;
+import static Utilities.Utilities.IDsOptionsCollection;
+import static Utilities.Utilities.IDsParametersCollection;
 import pojosKidney.PatientSimple;
 
 /**
@@ -30,8 +33,15 @@ public class Questionary extends javax.swing.JFrame {
     public static PatientSimple p = new PatientSimple(); 
     public static Patient p2 = new Patient();
     int cont=0;
-   
-           
+    private int ID;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }      
     /**
      * Creates new form FirstWindow
      */
@@ -271,7 +281,18 @@ public class Questionary extends javax.swing.JFrame {
            System.out.println("Estamos ya introduciendo ha terminado no??");
            System.out.println(answ[0]);
            p2 = Utilities.introd(answ);
+           
+           //Obtaining IDsOptions:        
+           String [] options = AssignementsOptions(p2);
+           int[] IDoptions = IDsOptionsCollection(options);
+           
+           //Obtaining IDsParameters:
+           int[] IDParameters = IDsParametersCollection();
+           
            Solution rd = new Solution();
+           rd.setID(ID);
+           rd.setIDsOptions(IDoptions);
+           rd.setIDsParameters(IDParameters);
            this.setVisible(false);
            rd.setVisible(true);
        }

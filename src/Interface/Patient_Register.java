@@ -325,7 +325,7 @@ public class Patient_Register extends javax.swing.JFrame {
             if(isNum){
                 
                 this.errorAge.setVisible(false);
-                Patient_FirstWindow.p= new PatientSimple();
+                Patient_FirstWindow.p = new PatientSimple();
                 Patient_FirstWindow.p.setAge(Utilities.convertInt(this.inputAge.getText()));
                 Patient_FirstWindow.p.setName(this.inputName.getText());
                 Patient_FirstWindow.p.setEmail(this.inputEmail.getText());

@@ -7,6 +7,8 @@ package db.sql;
 
 import pojosKidney.Patient;
 import db.interfaces.PatientManager;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,6 +60,7 @@ public class SQLPatientManager implements PatientManager {
         }
     }
    
+    @Override
     public void initializeOptionsWeights(String option, float weight){
      String sqlpatient = "INSERT INTO OptionsWeights (opt, weight)"
                 + "VALUES (?,?)";
@@ -72,7 +75,82 @@ public class SQLPatientManager implements PatientManager {
         }
     }
     
+    @Override
+    public Integer checkPassword(String email, byte[] password) throws NoSuchAlgorithmException{
+  
+        Integer patID = 0;
+        String sqlpatient = "SELECT id FROM patients WHERE mail LIKE ? AND pas LIKE ?";
+        try {
+            PreparedStatement stm = c.prepareStatement(sqlpatient);
+            stm.setString(1, email);
+            stm.setBytes(2, password);
+            ResultSet rs = stm.executeQuery();
+            rs.next();
+            patID = rs.getInt("id");         
+            stm.close();
+        } catch (SQLException ex) {
+            //Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+        
+        return patID; 
+    }
+    
+    @Override
+    public Integer ReturnIDparameter(String parameter){
+        int IDparameter = 0;
+        String sqlpatient = "SELECT id FROM parameters WHERE information LIKE ?";
+        try {
+            PreparedStatement stm = c.prepareStatement(sqlpatient);
+            stm.setString(1, parameter);
+            ResultSet rs = stm.executeQuery();
+            rs.next();
+            IDparameter = rs.getInt("id");         
+            stm.close();
+        } catch (SQLException ex) {
+            //Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+        return IDparameter;
+    }
+    
+    @Override
+    public Integer ReturnIDoptions(String option){
+        System.out.println("SQL option " + option);
+        int IDoption = 0;
+        String sqlpatient = "SELECT id FROM optionsweights WHERE opt LIKE ?";
+        try {
+            PreparedStatement stm = c.prepareStatement(sqlpatient);
+            stm.setString(1, option);
+            ResultSet rs = stm.executeQuery();
+            rs.next();
+            IDoption = rs.getInt("id");         
+            stm.close();
+        } catch (SQLException ex) {
+            //Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+        return IDoption;
+    }
+    
    
+    public void createPatientParameters(int idPatient, int idOptions, int idParameters) {
+       
+        String sqlpatient = "INSERT INTO patientparameters (id_patient, id_parameter, id_optionsWeights)"
+                + "VALUES (?,?,?)";
+        try {
+            PreparedStatement stm = c.prepareStatement(sqlpatient);
+            stm.setInt(1, idPatient);
+            stm.setInt(2, idParameters);
+            stm.setInt(3, idOptions);
+            stm.executeUpdate();
+            stm.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SQLPatientManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @Override
    public void sendParameters(){
         initializeParameters("Donor");
