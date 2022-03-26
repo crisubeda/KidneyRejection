@@ -6,7 +6,7 @@
 package db.sql;
 
 import static Interface.Doctor_FirstWindow.patient;
-import static Interface.Patient_FirstWindow.patientManager;
+import static Interface.FirstWindow.patientManager;
 import Utilities.ConnectionDatabase;
 import Utilities.Utilities;
 import db.interfaces.*;

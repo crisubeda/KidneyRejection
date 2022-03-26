@@ -30,9 +30,7 @@ import pojosKidney.PatientSimple;
  */
 public class Patient_FirstWindow extends javax.swing.JFrame {
 
-    public static PatientSimple p;
     public static Patient p2;
-    public static PatientManager patientManager;
     public static DBManager dbManager;
 
     /**
@@ -40,14 +38,8 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
      */
     public Patient_FirstWindow() {
         initComponents();
-        p = new PatientSimple();
         this.errorText.setVisible(false);
         this.errorText1.setVisible(false);
-        //dbManager = new SQLManager();
-        //dbManager.connect();
-
-        //patientManager = dbManager.getPatientManager();
-        // patientManager.sendParameters();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
 
@@ -285,7 +277,7 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
                 /*Patient_FirstWindow.p = new PatientSimple();
                 Patient_FirstWindow.p.setEmail(this.inputName.getText());
                 Patient_FirstWindow.p.setPas(hash);*/
-                id = Patient_FirstWindow.patientManager.checkPassword(this.inputName.getText(), hash);
+                id = FirstWindow.patientManager.checkPassword(this.inputName.getText(), hash);
                 if(id==0){
                     this.errorText.setVisible(true);
                 }else{

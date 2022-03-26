@@ -4,7 +4,6 @@
  */
 package Interface;
 import static Interface.Patient_FirstWindow.dbManager;
-import static Interface.Patient_FirstWindow.patientManager;
 import Utilities.Utilities;
 import db.interfaces.DBManager;
 import db.interfaces.PatientManager;
@@ -18,6 +17,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import pojosKidney.PatientSimple;
 
 /**
  *
@@ -27,6 +27,7 @@ public class FirstWindow extends javax.swing.JFrame {
     
     public static PatientManager patientManager;
     public static DBManager dbManager;
+    public static PatientSimple patientSimple;
     /**
      * Creates new form FirstWindow
      */
@@ -37,7 +38,8 @@ public class FirstWindow extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         patientManager = dbManager.getPatientManager();
-        
+        patientSimple = new PatientSimple();
+   
     //IMPORTANT!!!
     //The next 2 lines were executed only one time for creating the static tables in our database
         //patientManager.sendParameters(); -> this function is going to fill the description column of the

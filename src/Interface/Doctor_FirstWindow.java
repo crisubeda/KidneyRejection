@@ -3,10 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
+
+import db.interfaces.PatientManager;
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -15,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import pojosKidney.Patient;
+import pojosKidney.PatientSimple;
 
 /**
  *
@@ -37,7 +41,7 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
             model.addElement(" ");
         }
         this.ListPatient.setModel(model);
-      
+
     }
 
     /**
@@ -188,38 +192,23 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_inputNameActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
-       FirstWindow rd = new FirstWindow();
+        FirstWindow rd = new FirstWindow();
         this.setVisible(false);
         rd.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_back_butActionPerformed
 
     private void search_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_butActionPerformed
-          DefaultListModel<String> model2 = new DefaultListModel<>();
+        DefaultListModel<String> model2 = new DefaultListModel<>();
         JList<String> list = new JList<>(model2);
         String busqueda = this.inputName.getText();
-       
-//coger los nombres de la base de datos 
-     String ListNames = "";
-//ConnectionWithServer.receiveSomething(FirstWindow.socket, FirstWindow.bufferedReader);
-        String[] Names = new String[100];
-        int position = 0;
-        String nameTaken = "";
-        //sacamos los nombres de un array de todo jsutos // si los podemos coger con un array genial proque esto nos lo quitamos
-        for (int i = 0; i < ListNames.length(); i++) {
-            char a = ListNames.charAt(i);
-            while (a != ';') {
-                nameTaken = nameTaken + a;
-                i++;
-                a = ListNames.charAt(i);
-            }
-            Names[position] = nameTaken;
-            nameTaken = "";
-            position++;
-        }
-        for (int i = 0; i < Names.length; i++) {
-            if (!Names[i].equals("null")) {
-                System.out.println("El nombes es: " + Names[i]);
-                model2.addElement(Names[i]);
+
+//take names from the database
+        ArrayList<PatientSimple> patientList = new ArrayList<>();
+        patientList = FirstWindow.patientManager.patientsList();
+        for (int i = 0; i < patientList.size(); i++) {
+            if (!patientList.get(i).name.equals("null") && patientList.get(i).name.contains(busqueda)) {
+                System.out.println("El nombre es: " + patientList.get(i).name);
+                model2.addElement(patientList.get(i).getID() + "." + patientList.get(i).name);
             }
         }
         this.ListPatient.setModel(model2);   // TODO add your handling code here:
@@ -227,15 +216,18 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
 
     private void go_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_butActionPerformed
         String busqueda = this.ListPatient.getSelectedValue();
+        int position = busqueda.indexOf(".");
+        int id_busqueda = Utilities.Utilities.convertInt(busqueda.substring(0, position));
+        FirstWindow.patientSimple = FirstWindow.patientManager.searchPatientSimpleByID(id_busqueda);
         // coger paciente por nombre o por id a lo mejor si lo enseñamos 
-        
+
         //si cogido--> pasamos a un menu para ver que quiere hacer
-        
-      /*  if (received) {
-            PatientInformation rd = new PatientInformation();
+        // if (received) {
+            Menu rd = new Menu();
+            rd.setID(id_busqueda);
             this.setVisible(false);
             rd.setVisible(true);
-        } // TODO add your handling code here:*/
+         // TODO add your handling code here:*/
     }//GEN-LAST:event_go_butActionPerformed
 
     /**

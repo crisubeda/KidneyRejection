@@ -325,22 +325,21 @@ public class Patient_Register extends javax.swing.JFrame {
             if(isNum){
                 
                 this.errorAge.setVisible(false);
-                Patient_FirstWindow.p = new PatientSimple();
-                Patient_FirstWindow.p.setAge(Utilities.convertInt(this.inputAge.getText()));
-                Patient_FirstWindow.p.setName(this.inputName.getText());
-                Patient_FirstWindow.p.setEmail(this.inputEmail.getText());
-                Patient_FirstWindow.p.setPas(hash);
-                System.out.println(Patient_FirstWindow.p.pas);
+                FirstWindow.patientSimple = new PatientSimple();
+                FirstWindow.patientSimple.setAge(Utilities.convertInt(this.inputAge.getText()));
+                FirstWindow.patientSimple.setName(this.inputName.getText());
+                FirstWindow.patientSimple.setEmail(this.inputEmail.getText());
+                FirstWindow.patientSimple.setPas(hash);
+                System.out.println(FirstWindow.patientSimple.pas);
                 if(this.inputGender.getSelectedIndex()==0){
-                    Patient_FirstWindow.p.setSex(Sex.NA);
+                    FirstWindow.patientSimple.setSex(Sex.NA);
                 } else if(this.inputGender.getSelectedIndex()==1){
-                     Patient_FirstWindow.p.setSex(Sex.MAN);
+                     FirstWindow.patientSimple.setSex(Sex.MAN);
                 }else if(this.inputGender.getSelectedIndex()==2){
-                    Patient_FirstWindow.p.setSex(Sex.WOMAN);
+                    FirstWindow.patientSimple.setSex(Sex.WOMAN);
                 }
-            System.out.println("Patient:" + Patient_FirstWindow.p );
             //poner un if a lo mejor si hay problemas
-            Patient_FirstWindow.patientManager.createPatientSimple(Patient_FirstWindow.p);
+            FirstWindow.patientManager.createPatientSimple(FirstWindow.patientSimple);
             Menu rd = new Menu();//añadir a número de test del paciente cuando le de a nuevo test
             this.setVisible(false);
             rd.setVisible(true);

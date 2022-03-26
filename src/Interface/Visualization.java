@@ -17,7 +17,7 @@ import javax.swing.JLabel;
  *
  * @author carmen
  */
-public class Menu extends javax.swing.JFrame {
+public class Visualization extends javax.swing.JFrame {
     private int ID;
 
     public int getID() {
@@ -30,7 +30,7 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form FirstWindow
      */
-    public Menu() {
+    public Visualization() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -49,8 +49,7 @@ public class Menu extends javax.swing.JFrame {
 
         panel1 = new javax.swing.JPanel();
         panelP = new javax.swing.JPanel();
-        Histor_but = new javax.swing.JButton();
-        NewTest_but = new javax.swing.JButton();
+        Back_but = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,23 +57,13 @@ public class Menu extends javax.swing.JFrame {
 
         panelP.setBackground(new java.awt.Color(231, 243, 255));
 
-        Histor_but.setBackground(new java.awt.Color(0, 0, 153));
-        Histor_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
-        Histor_but.setText("See previous");
-        Histor_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 51, 153), null, null));
-        Histor_but.addActionListener(new java.awt.event.ActionListener() {
+        Back_but.setBackground(new java.awt.Color(0, 0, 153));
+        Back_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        Back_but.setText("Back");
+        Back_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 51, 153), null, null));
+        Back_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Histor_butActionPerformed(evt);
-            }
-        });
-
-        NewTest_but.setBackground(new java.awt.Color(0, 51, 153));
-        NewTest_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
-        NewTest_but.setText("New Test");
-        NewTest_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 153), null, null));
-        NewTest_but.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NewTest_butActionPerformed(evt);
+                Back_butActionPerformed(evt);
             }
         });
 
@@ -82,21 +71,17 @@ public class Menu extends javax.swing.JFrame {
         panelP.setLayout(panelPLayout);
         panelPLayout.setHorizontalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(NewTest_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
-                .addComponent(Histor_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+            .addGroup(panelPLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(375, Short.MAX_VALUE))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NewTest_but, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Histor_but, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(117, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                .addContainerGap(232, Short.MAX_VALUE)
+                .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -111,7 +96,7 @@ public class Menu extends javax.swing.JFrame {
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
@@ -130,17 +115,10 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NewTest_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTest_butActionPerformed
-        Questionary rd = new Questionary();
-        rd.setID(ID);
-        this.setVisible(false);
-        rd.setVisible(true); // TODO add your handling code here:
-    }//GEN-LAST:event_NewTest_butActionPerformed
-
-    private void Histor_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Histor_butActionPerformed
+    private void Back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_butActionPerformed
         ShowHistory rd = new ShowHistory();
         
-    }//GEN-LAST:event_Histor_butActionPerformed
+    }//GEN-LAST:event_Back_butActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,28 +137,29 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Visualization.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Visualization.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Visualization.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Visualization.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu().setVisible(true);
+                new Visualization().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Histor_but;
-    private javax.swing.JButton NewTest_but;
+    private javax.swing.JButton Back_but;
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panelP;
     // End of variables declaration//GEN-END:variables

@@ -4,7 +4,7 @@
  */
 package Utilities;
 
-
+import Interface.Patient_FirstWindow;
 import db.interfaces.DBManager;
 import db.interfaces.PatientManager;
 import db.sql.SQLPatientManager;
@@ -20,9 +20,9 @@ import pojosKidney.HLAIncompatibility;
 import pojosKidney.IL10andTNF;
 import pojosKidney.Patient;
 import pojosKidney.PatientSimple;
+import pojosKidney.Sex;
 import pojosKidney.TimeFromTransplant;
 import pojosKidney.TimeOutOrganism;
-
 
 /**
  *
@@ -34,7 +34,6 @@ public class Utilities {
     //public static DBManager dbManager;
     //dbManager = new SQLManager();
     //dbManager.connect();
-
     //Patient p = new Patient();
     public static Patient introd(boolean[] ans) {
 
@@ -157,8 +156,30 @@ public class Utilities {
     }
 
     public static void insertIDs(int idPatient, int[] idOptions, int[] idParameters, PatientManager patientManager) {
+        int Ntest = patientManager.takeNtest(idPatient);
         for (int i = 0; i < idOptions.length; i++) {
-            patientManager.createPatientParameters(idPatient, idOptions[i], idParameters[i]);
+            patientManager.createPatientParameters(idPatient, idOptions[i], idParameters[i], Ntest);
         }
+    }
+
+    public static Sex changeSex(String gender) {
+        Sex sex = Sex.NA;
+        if (gender.equals("NA")) {
+            sex = (Sex.NA);
+        } else if (gender.equals("MAN")) {
+            sex = (Sex.MAN);
+        } else if (gender.equals("WOMAN")) {
+            sex = (Sex.WOMAN);
+        }
+        return sex;
+    }
+    
+    public static String[] returnPatient(int idPatient, int Ntest, PatientManager patientManager){
+        int[] ids_options = patientManager.takeSelectedTest(idPatient, Ntest);
+        String[] listOptions = new String[7];
+        for(int i=0; i<ids_options.length; i++){
+           listOptions[i] = patientManager.takeOptions(i);
+        }
+       return listOptions;
     }
 }

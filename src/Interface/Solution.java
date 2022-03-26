@@ -178,8 +178,8 @@ public class Solution extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
-        Patient_FirstWindow.patientManager.modifyNtest(ID);
-        Utilities.insertIDs(ID, IDsOptions, IDsParameters, Patient_FirstWindow.patientManager);
+        FirstWindow.patientManager.modifyNtest(ID);
+        Utilities.insertIDs(ID, IDsOptions, IDsParameters, FirstWindow.patientManager);
 
         Menu rd = new Menu();
         rd.setID(ID);

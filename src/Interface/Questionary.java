@@ -30,7 +30,6 @@ import pojosKidney.PatientSimple;
 public class Questionary extends javax.swing.JFrame {
     String [] quest= new String [8];
     boolean [] answ= new boolean[8];
-    public static PatientSimple p = new PatientSimple(); 
     public static Patient p2 = new Patient();
     int cont=0;
     private int ID;
@@ -91,7 +90,7 @@ public class Questionary extends javax.swing.JFrame {
 
         panelP.setBackground(new java.awt.Color(231, 243, 255));
 
-        error.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        error.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         error.setForeground(new java.awt.Color(0, 0, 204));
         error.setText("You have to select one option!");
 
@@ -155,9 +154,6 @@ public class Questionary extends javax.swing.JFrame {
             .addGroup(panelPLayout.createSequentialGroup()
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPLayout.createSequentialGroup()
-                        .addGap(203, 203, 203)
-                        .addComponent(error, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(porbText, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -170,6 +166,10 @@ public class Questionary extends javax.swing.JFrame {
                             .addComponent(NextBut, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(NoBut))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(error, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,9 +185,9 @@ public class Questionary extends javax.swing.JFrame {
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(YesBut)
                     .addComponent(NoBut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(19, 19, 19)
                 .addComponent(error, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackBut, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(NextBut, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -284,10 +284,10 @@ public class Questionary extends javax.swing.JFrame {
            
            //Obtaining IDsOptions:        
            String [] options = AssignementsOptions(p2);
-           int[] IDoptions = IDsOptionsCollection(options, Patient_FirstWindow.patientManager);
+           int[] IDoptions = IDsOptionsCollection(options, FirstWindow.patientManager);
            
            //Obtaining IDsParameters:
-           int[] IDParameters = IDsParametersCollection(Patient_FirstWindow.patientManager);
+           int[] IDParameters = IDsParametersCollection(FirstWindow.patientManager);
            
            Solution rd = new Solution();
            rd.setID(ID);

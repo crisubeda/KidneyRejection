@@ -6,6 +6,7 @@
 package db.interfaces;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import pojosKidney.Patient;
 import pojosKidney.PatientSimple;
 
@@ -23,9 +24,14 @@ public interface PatientManager {
     public Integer checkPassword(String email, byte[] password)throws NoSuchAlgorithmException;
     public Integer ReturnIDoptions(String option);
     public Integer ReturnIDparameter(String parameter);
-    public void createPatientParameters(int idPatient, int idOptions, int idParameters);
+    public void createPatientParameters(int idPatient, int idOptions, int idParameters, int Ntest);
     public void modifyNtest(int id_patient);
     public int takeNtest(int id_patient);
+    public ArrayList<PatientSimple> patientsList();
+    public PatientSimple searchPatientSimpleByID(int idPatient);
+    public String takeOptions(int id);
+    public int[] takeSelectedTest(int idPatient, int Ntest);
+    
  //   public Patient getPatientById(int id);
 
   //  public Patient getPatientByUsername(String Username);

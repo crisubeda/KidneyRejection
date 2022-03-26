@@ -60,7 +60,7 @@ rule "v6"
     salience 3 
     dialect "java"
     when
-        p1 : Patient ( hlaIncompatibility == HLAIncompatibility.YES)
+        p1 : Patient ( hlaIncompatibility == HLAIncompatibility.YES_HLA)
     then
         p1.setProb(((1-p1.getProb())*0.11)+p1.getProb());
 end
@@ -70,7 +70,7 @@ rule "v7"
     salience 2 
     dialect "java"
     when
-        p1 : Patient ( fibrinoidNecrosis == FibrinoidNecrosis.YES)
+        p1 : Patient ( fibrinoidNecrosis == FibrinoidNecrosis.YES_FibrinoidNecrosis)
     then
         p1.setProb(((1-p1.getProb())*0.4)+p1.getProb());
 end
@@ -80,7 +80,7 @@ rule "v8"
     salience 1 
     dialect "java"
     when
-        p1 : Patient ( il10andTNF == IL10andTNF.YES)
+        p1 : Patient ( il10andTNF == IL10andTNF.YES_IL10andTNF)
     then
         p1.setProb(((1-p1.getProb())*0.9)+p1.getProb());
 end

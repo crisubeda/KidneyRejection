@@ -18,6 +18,19 @@ public class PatientSimple {
     public byte[] pas;
     public int Ntest;
 
+    public PatientSimple(int ID, String name, String email, int age, Sex sex, int Ntest) {
+        this.ID = ID;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.sex = sex;
+        this.Ntest = Ntest;
+    }
+    
+ public PatientSimple(int ID, String name) {
+        this.ID = ID;
+        this.name = name;
+    }
     public PatientSimple(int ID, String name, String email, int age, Sex sex, byte[] pas, int Ntest) {
         this.ID = ID;
         this.name = name;
