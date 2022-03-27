@@ -267,6 +267,7 @@ public class SQLPatientManager implements PatientManager {
         }
         return option;
     }
+    
 
     @Override
     public void sendParameters() {

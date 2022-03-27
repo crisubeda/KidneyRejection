@@ -178,7 +178,8 @@ public class Utilities {
         int[] ids_options = patientManager.takeSelectedTest(idPatient, Ntest);
         String[] listOptions = new String[7];
         for(int i=0; i<ids_options.length; i++){
-           listOptions[i] = patientManager.takeOptions(i);
+           listOptions[i] = patientManager.takeOptions(ids_options[i]);
+            System.out.println(listOptions[i]);
         }
        return listOptions;
     }

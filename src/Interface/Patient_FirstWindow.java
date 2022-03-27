@@ -281,9 +281,9 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
                 if(id==0){
                     this.errorText.setVisible(true);
                 }else{
+                    FirstWindow.patientSimple = FirstWindow.patientManager.searchPatientSimpleByID(id);
                     this.errorText.setVisible(false);
                     Menu rd = new Menu();
-                    rd.setID(id);
                     this.setVisible(false);
                     rd.setVisible(true);
                 }

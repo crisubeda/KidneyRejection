@@ -73,15 +73,38 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="Back_but" min="-2" pref="55" max="-2" attributes="0"/>
-                      <EmptySpace pref="375" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Fribrinoid" min="-2" pref="388" max="-2" attributes="0"/>
+                          <Component id="IL10" min="-2" pref="388" max="-2" attributes="0"/>
+                          <Component id="HLA" min="-2" pref="388" max="-2" attributes="0"/>
+                          <Component id="Creatinine" min="-2" pref="388" max="-2" attributes="0"/>
+                          <Component id="Weeks" min="-2" pref="388" max="-2" attributes="0"/>
+                          <Component id="Donor" alignment="0" min="-2" pref="373" max="-2" attributes="0"/>
+                          <Component id="Back_but" min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="TimeOut" alignment="0" min="-2" pref="388" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="232" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="Donor" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="TimeOut" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="Weeks" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="Creatinine" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="HLA" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="Fribrinoid" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
+                      <Component id="IL10" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Back_but" min="-2" pref="42" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -109,6 +132,41 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Back_butActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Donor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Donor alive?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="TimeOut">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Was the kidney more than 19h out of the organisim?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Weeks">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Was the transplant more than 2 week ago?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Creatinine">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Was the donor&apos;s creatinine more than 2.5r?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="HLA">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Has the patient HLA Incompatibility?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="IL10">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Has the patient IL10 and TNF?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Fribrinoid">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Has the patient Fibrinoid Necrosis?"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

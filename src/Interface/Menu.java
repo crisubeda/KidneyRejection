@@ -18,18 +18,7 @@ import javax.swing.JLabel;
  * @author carmen
  */
 public class Menu extends javax.swing.JFrame {
-    private int ID;
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-    /**
-     * Creates new form FirstWindow
-     */
+    
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -132,14 +121,14 @@ public class Menu extends javax.swing.JFrame {
 
     private void NewTest_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTest_butActionPerformed
         Questionary rd = new Questionary();
-        rd.setID(ID);
         this.setVisible(false);
         rd.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_NewTest_butActionPerformed
 
     private void Histor_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Histor_butActionPerformed
-        ShowHistory rd = new ShowHistory();
-        
+        ShowHist rd = new ShowHist();
+        this.setVisible(false);
+        rd.setVisible(true); 
     }//GEN-LAST:event_Histor_butActionPerformed
 
     /**

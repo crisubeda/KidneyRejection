@@ -182,7 +182,6 @@ public class Solution extends javax.swing.JFrame {
         Utilities.insertIDs(ID, IDsOptions, IDsParameters, FirstWindow.patientManager);
 
         Menu rd = new Menu();
-        rd.setID(ID);
         this.setVisible(false);
         rd.setVisible(true);
     }//GEN-LAST:event_SaveButActionPerformed

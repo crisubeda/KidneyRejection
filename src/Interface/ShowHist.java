@@ -3,13 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interface;
-
-import db.interfaces.PatientManager;
 import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -17,31 +14,40 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import pojosKidney.Patient;
-import pojosKidney.PatientSimple;
 
 /**
  *
  * @author carmen
  */
-public class Doctor_FirstWindow extends javax.swing.JFrame {
+public class ShowHist extends javax.swing.JFrame {
+    private int ID;
+    private  String[] tests;
 
-    public static Patient patient;
+    public static String[] t;
+    
+    public String[] getTests() {
+        return tests;
+    }
+
+    public void setTests(String[] tests) {
+        this.tests = tests;
+    }
+    
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
     /**
      * Creates new form FirstWindow
      */
-    public Doctor_FirstWindow() {
+    public ShowHist() {
         initComponents();
-        patient = new Patient();
+        t = new String[7];
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        DefaultListModel<String> model = new DefaultListModel<>();
-        JList<String> list = new JList<>(model);
-        for (int i = 0; i < 10; i++) { //size de la lista
-            model.addElement(" ");
-        }
-        this.ListPatient.setModel(model);
-
     }
 
     /**
@@ -55,29 +61,25 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
 
         panel1 = new javax.swing.JPanel();
         panelP = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        inputName = new javax.swing.JTextField();
+        showTest_but = new javax.swing.JButton();
         back_but = new javax.swing.JButton();
+        go_but = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListPatient = new javax.swing.JList<>();
-        search_but = new javax.swing.JButton();
-        go_but = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panel1.setBackground(new java.awt.Color(0, 102, 0));
+        panel1.setBackground(new java.awt.Color(0, 51, 153));
 
-        panelP.setBackground(new java.awt.Color(208, 226, 217));
+        panelP.setBackground(new java.awt.Color(231, 243, 255));
 
-        jLabel1.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
-        jLabel1.setText("Patient Name:");
-
-        inputName.setBackground(new java.awt.Color(208, 226, 217));
-        inputName.setFont(new java.awt.Font("STKaiti", 0, 13)); // NOI18N
-        inputName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 0), 5));
-        inputName.addActionListener(new java.awt.event.ActionListener() {
+        showTest_but.setBackground(new java.awt.Color(0, 102, 0));
+        showTest_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        showTest_but.setText("Show tests");
+        showTest_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 102, 255), null, null));
+        showTest_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputNameActionPerformed(evt);
+                showTest_butActionPerformed(evt);
             }
         });
 
@@ -91,20 +93,6 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
             }
         });
 
-        ListPatient.setFont(new java.awt.Font("STKaiti", 0, 12)); // NOI18N
-        ListPatient.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(ListPatient);
-
-        search_but.setBackground(new java.awt.Color(0, 102, 0));
-        search_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
-        search_but.setText("Search");
-        search_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 102, 255), null, null));
-        search_but.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                search_butActionPerformed(evt);
-            }
-        });
-
         go_but.setBackground(new java.awt.Color(0, 102, 0));
         go_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         go_but.setText("GO!");
@@ -115,45 +103,41 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
             }
         });
 
+        ListPatient.setFont(new java.awt.Font("STKaiti", 0, 12)); // NOI18N
+        ListPatient.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(ListPatient);
+
         javax.swing.GroupLayout panelPLayout = new javax.swing.GroupLayout(panelP);
         panelP.setLayout(panelPLayout);
         panelPLayout.setHorizontalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPLayout.createSequentialGroup()
-                .addGap(8, 8, 8)
-                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(panelPLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                        .addComponent(search_but)
-                        .addGap(18, 18, 18))))
-            .addGroup(panelPLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(20, 20, 20)
                 .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(24, 24, 24))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(panelPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(showTest_but)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(search_but, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(showTest_but, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -187,9 +171,20 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputNameActionPerformed
+    private void showTest_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTest_butActionPerformed
+        DefaultListModel<String> model2 = new DefaultListModel<>();
+        JList<String> list = new JList<>(model2);
+
+        //take names from the database
+        int Ntest = FirstWindow.patientSimple.Ntest;
+
+        //ArrayList<PatientSimple> patientList = new ArrayList<>();
+
+        for (int i = 0; i < Ntest; i++) {
+            model2.addElement("Test " + i+1);
+        }
+        this.ListPatient.setModel(model2);   // TODO add your handling code here:
+    }//GEN-LAST:event_showTest_butActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
         FirstWindow rd = new FirstWindow();
@@ -197,36 +192,22 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         rd.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_back_butActionPerformed
 
-    private void search_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_butActionPerformed
-        DefaultListModel<String> model2 = new DefaultListModel<>();
-        JList<String> list = new JList<>(model2);
-        String busqueda = this.inputName.getText();
-
-//take names from the database
-        ArrayList<PatientSimple> patientList = new ArrayList<>();
-        patientList = FirstWindow.patientManager.patientsList();
-        for (int i = 0; i < patientList.size(); i++) {
-            if (!patientList.get(i).name.equals("null") && patientList.get(i).name.contains(busqueda)) {
-                System.out.println("El nombre es: " + patientList.get(i).name);
-                model2.addElement(patientList.get(i).getID() + "." + patientList.get(i).name);
-            }
-        }
-        this.ListPatient.setModel(model2);   // TODO add your handling code here:
-    }//GEN-LAST:event_search_butActionPerformed
-
     private void go_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_butActionPerformed
-        String busqueda = this.ListPatient.getSelectedValue();
-        int position = busqueda.indexOf(".");
-        int id_busqueda = Utilities.Utilities.convertInt(busqueda.substring(0, position));
-        FirstWindow.patientSimple = FirstWindow.patientManager.searchPatientSimpleByID(id_busqueda);
-        // coger paciente por nombre o por id a lo mejor si lo enseñamos 
+        String Ntest = this.ListPatient.getSelectedValue();
+        int position = Ntest.indexOf(" ");
+        int test = Utilities.Utilities.convertInt(Ntest.substring(position+1, Ntest.length()));
+        t = Utilities.Utilities.returnPatient(FirstWindow.patientSimple.getID(), test, FirstWindow.patientManager);
+        Visualization rd = new Visualization();
+        this.setVisible(false);
+        rd.setVisible(true);
+        // coger paciente por nombre o por id a lo mejor si lo enseñamos
 
         //si cogido--> pasamos a un menu para ver que quiere hacer
-        // if (received) {
-            Menu rd = new Menu();
+        /*  if (received) {
+            PatientInformation rd = new PatientInformation();
             this.setVisible(false);
             rd.setVisible(true);
-         // TODO add your handling code here:*/
+        } // TODO add your handling code here:*/
     }//GEN-LAST:event_go_butActionPerformed
 
     /**
@@ -246,13 +227,13 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Doctor_FirstWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowHist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Doctor_FirstWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowHist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Doctor_FirstWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowHist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Doctor_FirstWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ShowHist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -266,7 +247,7 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Doctor_FirstWindow().setVisible(true);
+                new ShowHist().setVisible(true);
             }
         });
     }
@@ -275,11 +256,9 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
     private javax.swing.JList<String> ListPatient;
     private javax.swing.JButton back_but;
     private javax.swing.JButton go_but;
-    private javax.swing.JTextField inputName;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panelP;
-    private javax.swing.JButton search_but;
+    private javax.swing.JButton showTest_but;
     // End of variables declaration//GEN-END:variables
 }

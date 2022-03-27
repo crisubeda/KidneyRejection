@@ -18,24 +18,19 @@ import javax.swing.JLabel;
  * @author carmen
  */
 public class Visualization extends javax.swing.JFrame {
-    private int ID;
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-    /**
-     * Creates new form FirstWindow
-     */
+   
     public Visualization() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         
-      
+       this.Donor.setText("Donor: "+ ShowHist.t[0]);
+        this.TimeOut.setText("Time out organism: " + ShowHist.t[1]);
+        this.Weeks.setText("Time from transplant: " + ShowHist.t[2]);
+        this.Creatinine.setText("Creatinine levels: " + ShowHist.t[3]);
+        this.HLA.setText("HLA incompatibility: " + ShowHist.t[4]);
+        this.Fribrinoid.setText("Fibrinoid Necrosis: " + ShowHist.t[5]);
+        this.IL10.setText("IL10 and TNF: " + ShowHist.t[6]);
     }
 
     /**
@@ -50,6 +45,13 @@ public class Visualization extends javax.swing.JFrame {
         panel1 = new javax.swing.JPanel();
         panelP = new javax.swing.JPanel();
         Back_but = new javax.swing.JButton();
+        Donor = new javax.swing.JLabel();
+        TimeOut = new javax.swing.JLabel();
+        Weeks = new javax.swing.JLabel();
+        Creatinine = new javax.swing.JLabel();
+        HLA = new javax.swing.JLabel();
+        IL10 = new javax.swing.JLabel();
+        Fribrinoid = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,19 +69,55 @@ public class Visualization extends javax.swing.JFrame {
             }
         });
 
+        Donor.setText("Donor alive?");
+
+        TimeOut.setText("Was the kidney more than 19h out of the organisim?");
+
+        Weeks.setText("Was the transplant more than 2 week ago?");
+
+        Creatinine.setText("Was the donor's creatinine more than 2.5r?");
+
+        HLA.setText("Has the patient HLA Incompatibility?");
+
+        IL10.setText("Has the patient IL10 and TNF?");
+
+        Fribrinoid.setText("Has the patient Fibrinoid Necrosis?");
+
         javax.swing.GroupLayout panelPLayout = new javax.swing.GroupLayout(panelP);
         panelP.setLayout(panelPLayout);
         panelPLayout.setHorizontalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(375, Short.MAX_VALUE))
+                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Fribrinoid, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IL10, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HLA, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Creatinine, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Weeks, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Donor, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TimeOut, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
+                .addComponent(Donor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TimeOut)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Weeks)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Creatinine)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(HLA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Fribrinoid)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(IL10)
+                .addGap(18, 18, 18)
                 .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -116,7 +154,9 @@ public class Visualization extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_butActionPerformed
-        ShowHistory rd = new ShowHistory();
+        ShowHist rd = new ShowHist();
+        this.setVisible(false);
+        rd.setVisible(true);
         
     }//GEN-LAST:event_Back_butActionPerformed
 
@@ -160,6 +200,13 @@ public class Visualization extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back_but;
+    private javax.swing.JLabel Creatinine;
+    private javax.swing.JLabel Donor;
+    private javax.swing.JLabel Fribrinoid;
+    private javax.swing.JLabel HLA;
+    private javax.swing.JLabel IL10;
+    private javax.swing.JLabel TimeOut;
+    private javax.swing.JLabel Weeks;
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panelP;
     // End of variables declaration//GEN-END:variables
