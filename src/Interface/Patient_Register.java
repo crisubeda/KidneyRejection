@@ -31,6 +31,8 @@ public class Patient_Register extends javax.swing.JFrame {
         initComponents();
         this.errorText.setVisible(false);
         this.errorAge.setVisible(false);
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
         
     }
 
@@ -87,10 +89,10 @@ public class Patient_Register extends javax.swing.JFrame {
 
         panelP.setBackground(new java.awt.Color(252, 238, 238));
 
-        jLabel1.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         jLabel1.setText("Password:");
 
-        errorText.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        errorText.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         errorText.setForeground(new java.awt.Color(102, 0, 102));
         errorText.setText("INTRODUCE A VALID E-MAIL");
 
@@ -103,7 +105,7 @@ public class Patient_Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         jLabel3.setText("Patient Name:");
 
         reg_but.setBackground(new java.awt.Color(102, 0, 102));
@@ -117,8 +119,8 @@ public class Patient_Register extends javax.swing.JFrame {
         });
 
         back_but.setBackground(new java.awt.Color(102, 0, 102));
-        back_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
-        back_but.setText("<-");
+        back_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
+        back_but.setText("Back");
         back_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 0, 102), null, null));
         back_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +128,7 @@ public class Patient_Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         jLabel4.setText("Email:");
 
         inputEmail.setBackground(new java.awt.Color(252, 238, 238));
@@ -138,10 +140,10 @@ public class Patient_Register extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         jLabel5.setText("Gender:");
 
-        jLabel6.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         jLabel6.setText("Age:");
 
         inputGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Men", "Woman" }));
@@ -158,7 +160,7 @@ public class Patient_Register extends javax.swing.JFrame {
         intputPa.setFont(new java.awt.Font("STKaiti", 0, 13)); // NOI18N
         intputPa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 102), 5));
 
-        errorAge.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        errorAge.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         errorAge.setForeground(new java.awt.Color(102, 0, 102));
         errorAge.setText("INTRODUCE A VALID NUMBER");
 
@@ -178,9 +180,6 @@ public class Patient_Register extends javax.swing.JFrame {
             .addGroup(panelPLayout.createSequentialGroup()
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPLayout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(reg_but, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,39 +190,39 @@ public class Patient_Register extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(panelPLayout.createSequentialGroup()
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(28, 28, 28)
+                                        .addComponent(inputAge, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(28, 28, 28)
-                                                .addComponent(inputAge, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panelPLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(inputGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(panelPLayout.createSequentialGroup()
                                                 .addGap(26, 26, 26)
-                                                .addComponent(errorAge, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(55, 55, 55))
-                            .addGroup(panelPLayout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(intputPa)
-                                .addGap(18, 18, 18)))))
+                                                .addComponent(errorAge, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(panelPLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(errorText, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(panelPLayout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPLayout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(intputPa, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(inputGender, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(260, 260, 260)))
+                                .addGap(98, 98, 98))))
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(errorText, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
             .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelPLayout.createSequentialGroup()
                     .addGap(174, 174, 174)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(185, Short.MAX_VALUE)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(235, Short.MAX_VALUE)))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,8 +242,8 @@ public class Patient_Register extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errorText, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(errorText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(inputAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,7 +262,7 @@ public class Patient_Register extends javax.swing.JFrame {
                 .addGroup(panelPLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(343, Short.MAX_VALUE)))
+                    .addContainerGap(344, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -339,7 +338,9 @@ public class Patient_Register extends javax.swing.JFrame {
                     FirstWindow.patientSimple.setSex(Sex.WOMAN);
                 }
             //poner un if a lo mejor si hay problemas
+            String email = FirstWindow.patientSimple.getEmail();
             FirstWindow.patientManager.createPatientSimple(FirstWindow.patientSimple);
+            FirstWindow.patientSimple.setID(FirstWindow.patientManager.checkPassword(email, hash));
             Menu rd = new Menu();//añadir a número de test del paciente cuando le de a nuevo test
             this.setVisible(false);
             rd.setVisible(true);

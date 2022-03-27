@@ -40,6 +40,7 @@ public class Menu extends javax.swing.JFrame {
         panelP = new javax.swing.JPanel();
         Histor_but = new javax.swing.JButton();
         NewTest_but = new javax.swing.JButton();
+        Back_but = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,7 +48,7 @@ public class Menu extends javax.swing.JFrame {
 
         panelP.setBackground(new java.awt.Color(231, 243, 255));
 
-        Histor_but.setBackground(new java.awt.Color(0, 0, 153));
+        Histor_but.setBackground(new java.awt.Color(0, 51, 153));
         Histor_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         Histor_but.setText("See previous");
         Histor_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 51, 153), null, null));
@@ -67,25 +68,42 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Back_but.setBackground(new java.awt.Color(0, 51, 153));
+        Back_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        Back_but.setText("Back");
+        Back_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 51, 153), null, null));
+        Back_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_butActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelPLayout = new javax.swing.GroupLayout(panelP);
         panelP.setLayout(panelPLayout);
         panelPLayout.setHorizontalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(NewTest_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
-                .addComponent(Histor_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+            .addGroup(panelPLayout.createSequentialGroup()
+                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addGap(64, 64, 64)
+                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(NewTest_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Histor_but, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)))
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NewTest_but, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Histor_but, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(66, 66, 66)
+                .addComponent(NewTest_but, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(Histor_but, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -131,6 +149,13 @@ public class Menu extends javax.swing.JFrame {
         rd.setVisible(true); 
     }//GEN-LAST:event_Histor_butActionPerformed
 
+    private void Back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_butActionPerformed
+        // TODO add your handling code here:
+        Menu rd = new Menu();
+        this.setVisible(false);
+        rd.setVisible(true); 
+    }//GEN-LAST:event_Back_butActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -168,6 +193,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back_but;
     private javax.swing.JButton Histor_but;
     private javax.swing.JButton NewTest_but;
     private javax.swing.JPanel panel1;

@@ -62,6 +62,7 @@ public class FirstWindow extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Patient_but = new javax.swing.JButton();
         Doctor_but = new javax.swing.JButton();
+        Exit_but = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,11 +73,10 @@ public class FirstWindow extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("STKaiti", 1, 36)); // NOI18N
         jLabel1.setText("WELCOME! ");
 
-        Patient_but.setBackground(new java.awt.Color(0, 0, 153));
+        Patient_but.setBackground(new java.awt.Color(0, 51, 153));
         Patient_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         Patient_but.setText("Patient");
         Patient_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 51, 153), null, null));
-        Patient_but.setBounds(new java.awt.Rectangle(-32731, -32631, 30, 29));
         Patient_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Patient_butActionPerformed(evt);
@@ -87,10 +87,19 @@ public class FirstWindow extends javax.swing.JFrame {
         Doctor_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         Doctor_but.setText("Doctor");
         Doctor_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 153), null, null));
-        Doctor_but.setBounds(new java.awt.Rectangle(-32731, -32631, 30, 29));
         Doctor_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Doctor_butActionPerformed(evt);
+            }
+        });
+
+        Exit_but.setBackground(new java.awt.Color(0, 51, 153));
+        Exit_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
+        Exit_but.setText("Exit");
+        Exit_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 153), null, null));
+        Exit_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Exit_butActionPerformed(evt);
             }
         });
 
@@ -98,15 +107,20 @@ public class FirstWindow extends javax.swing.JFrame {
         panelP.setLayout(panelPLayout);
         panelPLayout.setHorizontalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(121, 121, 121))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(Doctor_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93)
-                .addComponent(Patient_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(panelPLayout.createSequentialGroup()
+                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(Doctor_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84)
+                        .addComponent(Patient_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(Exit_but, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
         panelPLayout.setVerticalGroup(
@@ -118,7 +132,9 @@ public class FirstWindow extends javax.swing.JFrame {
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Doctor_but, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Patient_but, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(Exit_but, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
@@ -164,6 +180,10 @@ public class FirstWindow extends javax.swing.JFrame {
         rd.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_Doctor_butActionPerformed
 
+    private void Exit_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit_butActionPerformed
+        System.exit(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_Exit_butActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -201,6 +221,7 @@ public class FirstWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Doctor_but;
+    private javax.swing.JButton Exit_but;
     private javax.swing.JButton Patient_but;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel1;

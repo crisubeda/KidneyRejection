@@ -83,7 +83,7 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
 
         panelP.setBackground(new java.awt.Color(252, 238, 238));
 
-        jLabel1.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         jLabel1.setText("Password:");
 
         jLabel2.setFont(new java.awt.Font("STKaiti", 1, 24)); // NOI18N
@@ -98,8 +98,8 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
-        jLabel3.setText("Patient Name:");
+        jLabel3.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        jLabel3.setText("Patient email:");
 
         reg_but.setBackground(new java.awt.Color(102, 0, 102));
         reg_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
@@ -122,8 +122,8 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
         });
 
         back_but.setBackground(new java.awt.Color(102, 0, 102));
-        back_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
-        back_but.setText("<-");
+        back_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
+        back_but.setText("Back");
         back_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(102, 0, 102), null, null));
         back_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,13 +131,13 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
             }
         });
 
-        errorText.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        errorText.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         errorText.setForeground(new java.awt.Color(102, 0, 102));
         errorText.setText("Incorrect email/password!!");
 
-        errorText1.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        errorText1.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         errorText1.setForeground(new java.awt.Color(102, 0, 102));
-        errorText1.setText("Incorrect email/password!!");
+        errorText1.setText("Introduce valid email!");
 
         intputPa.setBackground(new java.awt.Color(252, 238, 238));
         intputPa.setFont(new java.awt.Font("STKaiti", 0, 13)); // NOI18N
@@ -148,42 +148,41 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
         panelPLayout.setHorizontalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPLayout.createSequentialGroup()
-                        .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(192, 192, 192))))
-            .addGroup(panelPLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(intputPa)
-                        .addGap(25, 25, 25))
                     .addGroup(panelPLayout.createSequentialGroup()
                         .addComponent(reg_but, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49))))
+                        .addGap(49, 49, 49))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelPLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(errorText, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelPLayout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(intputPa)))
+                        .addGap(25, 25, 25))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
                 .addContainerGap(54, Short.MAX_VALUE)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                        .addComponent(errorText, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(105, 105, 105))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
                         .addComponent(errorText1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49))))
+                        .addContainerGap())))
+            .addGroup(panelPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +203,7 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
                     .addComponent(intputPa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errorText, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reg_but, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))

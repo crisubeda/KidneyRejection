@@ -170,8 +170,10 @@ public class SQLPatientManager implements PatientManager {
     }
 
     public void modifyNtest(int id_patient) {
-
+        System.out.println("Id es: " + id_patient);
+        
         int Ntest = takeNtest(id_patient);
+        System.out.println("Ntest es: " + Ntest);
         String sqlpatient1 = "UPDATE patients SET Ntest=? WHERE id=?";
         try {
             PreparedStatement stm = c.prepareStatement(sqlpatient1);

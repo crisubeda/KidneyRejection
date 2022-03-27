@@ -32,15 +32,9 @@ public class Questionary extends javax.swing.JFrame {
     boolean [] answ= new boolean[8];
     public static Patient p2 = new Patient();
     int cont=0;
-    private int ID;
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }      
+    public static int[] IDOptions;
+    public static int[] IDParameters;
+      
     /**
      * Creates new form FirstWindow
      */
@@ -58,7 +52,9 @@ public class Questionary extends javax.swing.JFrame {
         quest[4]= "Does the patient present HLA Incompatibility?";
         quest[5]= "Does the patient present Fibrinoid Necrosis? ";
         quest[6]= "Does the patient present IL10 and TNF?";
-     
+        IDOptions = new int[7];
+        IDParameters = new int[7];
+        
     }
 
     /**
@@ -95,7 +91,7 @@ public class Questionary extends javax.swing.JFrame {
         error.setText("You have to select one option!");
 
         BackBut.setBackground(new java.awt.Color(0, 51, 153));
-        BackBut.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        BackBut.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         BackBut.setText("Back");
         BackBut.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 153), null, null));
         BackBut.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +100,7 @@ public class Questionary extends javax.swing.JFrame {
             }
         });
 
+        YesBut.setBackground(new java.awt.Color(231, 243, 255));
         YesBut.setFont(new java.awt.Font("STKaiti", 0, 13)); // NOI18N
         YesBut.setText("Yes");
         YesBut.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +109,7 @@ public class Questionary extends javax.swing.JFrame {
             }
         });
 
+        NoBut.setBackground(new java.awt.Color(231, 243, 255));
         NoBut.setFont(new java.awt.Font("STKaiti", 0, 13)); // NOI18N
         NoBut.setText("No");
         NoBut.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +123,7 @@ public class Questionary extends javax.swing.JFrame {
         questionsText.setToolTipText("");
 
         NextBut.setBackground(new java.awt.Color(0, 51, 153));
-        NextBut.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        NextBut.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         NextBut.setText("Next");
         NextBut.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 0, 153), null, null));
         NextBut.addActionListener(new java.awt.event.ActionListener() {
@@ -284,15 +282,12 @@ public class Questionary extends javax.swing.JFrame {
            
            //Obtaining IDsOptions:        
            String [] options = AssignementsOptions(p2);
-           int[] IDoptions = IDsOptionsCollection(options, FirstWindow.patientManager);
+           IDOptions = IDsOptionsCollection(options, FirstWindow.patientManager);
            
            //Obtaining IDsParameters:
-           int[] IDParameters = IDsParametersCollection(FirstWindow.patientManager);
+           IDParameters = IDsParametersCollection(FirstWindow.patientManager);
            
            Solution rd = new Solution();
-           rd.setID(ID);
-           rd.setIDsOptions(IDoptions);
-           rd.setIDsParameters(IDParameters);
            this.setVisible(false);
            rd.setVisible(true);
        }

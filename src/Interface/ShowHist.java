@@ -20,7 +20,6 @@ import javax.swing.JList;
  * @author carmen
  */
 public class ShowHist extends javax.swing.JFrame {
-    private int ID;
     private  String[] tests;
 
     public static String[] t;
@@ -33,13 +32,6 @@ public class ShowHist extends javax.swing.JFrame {
         this.tests = tests;
     }
     
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
     /**
      * Creates new form FirstWindow
      */
@@ -73,7 +65,7 @@ public class ShowHist extends javax.swing.JFrame {
 
         panelP.setBackground(new java.awt.Color(231, 243, 255));
 
-        showTest_but.setBackground(new java.awt.Color(0, 102, 0));
+        showTest_but.setBackground(new java.awt.Color(0, 51, 153));
         showTest_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         showTest_but.setText("Show tests");
         showTest_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 102, 255), null, null));
@@ -83,9 +75,9 @@ public class ShowHist extends javax.swing.JFrame {
             }
         });
 
-        back_but.setBackground(new java.awt.Color(0, 102, 0));
-        back_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
-        back_but.setText("<-");
+        back_but.setBackground(new java.awt.Color(0, 51, 153));
+        back_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
+        back_but.setText("Back");
         back_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 102, 255), null, null));
         back_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,8 +85,8 @@ public class ShowHist extends javax.swing.JFrame {
             }
         });
 
-        go_but.setBackground(new java.awt.Color(0, 102, 0));
-        go_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        go_but.setBackground(new java.awt.Color(0, 51, 153));
+        go_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         go_but.setText("GO!");
         go_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 102, 255), null, null));
         go_but.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +105,7 @@ public class ShowHist extends javax.swing.JFrame {
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -123,7 +115,7 @@ public class ShowHist extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(panelPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(showTest_but)
+                .addComponent(showTest_but, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPLayout.setVerticalGroup(
@@ -179,15 +171,14 @@ public class ShowHist extends javax.swing.JFrame {
         int Ntest = FirstWindow.patientSimple.Ntest;
 
         //ArrayList<PatientSimple> patientList = new ArrayList<>();
-
-        for (int i = 0; i < Ntest; i++) {
-            model2.addElement("Test " + i+1);
+        for (int i = 1; i < (Ntest+1); i++) {
+            model2.addElement("Test " + i);
         }
         this.ListPatient.setModel(model2);   // TODO add your handling code here:
     }//GEN-LAST:event_showTest_butActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
-        FirstWindow rd = new FirstWindow();
+        Menu rd = new Menu();
         this.setVisible(false);
         rd.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_back_butActionPerformed

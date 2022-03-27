@@ -29,33 +29,6 @@ public class Solution extends javax.swing.JFrame {
     boolean[] answ = new boolean[6];
     Patient p = new Patient();
     int cont = 0;
-    private int ID;
-    private int[] IDsOptions;
-    private int[] IDsParameters;
-
-    public int[] getIDsOptions() {
-        return IDsOptions;
-    }
-
-    public void setIDsOptions(int[] IDsOptions) {
-        this.IDsOptions = IDsOptions;
-    }
-
-    public int[] getIDsParameters() {
-        return IDsParameters;
-    }
-
-    public void setIDsParameters(int[] IDsParameters) {
-        this.IDsParameters = IDsParameters;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     /**
      * Creates new form FirstWindow
@@ -96,7 +69,7 @@ public class Solution extends javax.swing.JFrame {
 
         panelP.setBackground(new java.awt.Color(231, 243, 255));
 
-        title.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        title.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         title.setText("The probabilities of rejecting the kidney are:");
 
         SaveBut.setBackground(new java.awt.Color(0, 51, 153));
@@ -178,9 +151,9 @@ public class Solution extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButActionPerformed
-        FirstWindow.patientManager.modifyNtest(ID);
-        Utilities.insertIDs(ID, IDsOptions, IDsParameters, FirstWindow.patientManager);
-
+        FirstWindow.patientManager.modifyNtest(FirstWindow.patientSimple.getID());
+        Utilities.insertIDs(FirstWindow.patientSimple.getID(), Questionary.IDOptions, Questionary.IDParameters, FirstWindow.patientManager);
+        FirstWindow.patientSimple = FirstWindow.patientManager.searchPatientSimpleByID(FirstWindow.patientSimple.getID());
         Menu rd = new Menu();
         this.setVisible(false);
         rd.setVisible(true);

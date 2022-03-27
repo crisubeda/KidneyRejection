@@ -24,7 +24,7 @@ public class Visualization extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         
-       this.Donor.setText("Donor: "+ ShowHist.t[0]);
+        this.Donor.setText("Donor: "+ ShowHist.t[0]);
         this.TimeOut.setText("Time out organism: " + ShowHist.t[1]);
         this.Weeks.setText("Time from transplant: " + ShowHist.t[2]);
         this.Creatinine.setText("Creatinine levels: " + ShowHist.t[3]);
@@ -60,7 +60,7 @@ public class Visualization extends javax.swing.JFrame {
         panelP.setBackground(new java.awt.Color(231, 243, 255));
 
         Back_but.setBackground(new java.awt.Color(0, 0, 153));
-        Back_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        Back_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         Back_but.setText("Back");
         Back_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 51, 153), null, null));
         Back_but.addActionListener(new java.awt.event.ActionListener() {
@@ -117,8 +117,8 @@ public class Visualization extends javax.swing.JFrame {
                 .addComponent(Fribrinoid)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(IL10)
-                .addGap(18, 18, 18)
-                .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(Back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 

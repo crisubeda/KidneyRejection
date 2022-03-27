@@ -82,8 +82,8 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         });
 
         back_but.setBackground(new java.awt.Color(0, 102, 0));
-        back_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
-        back_but.setText("<-");
+        back_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
+        back_but.setText("Back");
         back_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 102, 255), null, null));
         back_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(ListPatient);
 
         search_but.setBackground(new java.awt.Color(0, 102, 0));
-        search_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        search_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         search_but.setText("Search");
         search_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 102, 255), null, null));
         search_but.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +106,7 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         });
 
         go_but.setBackground(new java.awt.Color(0, 102, 0));
-        go_but.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
+        go_but.setFont(new java.awt.Font("STKaiti", 0, 14)); // NOI18N
         go_but.setText("GO!");
         go_but.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(153, 102, 255), null, null));
         go_but.addActionListener(new java.awt.event.ActionListener() {
@@ -122,19 +122,17 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
             .addGroup(panelPLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
+                    .addComponent(jScrollPane1)
                     .addGroup(panelPLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                        .addComponent(search_but)
-                        .addGap(18, 18, 18))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addComponent(search_but, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
             .addGroup(panelPLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(go_but, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
