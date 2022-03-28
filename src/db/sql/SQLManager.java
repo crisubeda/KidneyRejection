@@ -40,17 +40,14 @@ public class SQLManager implements DBManager {
     public void connect() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            //String ipFromConfigFile = "";
             try {
                 String datos=ConnectionDatabase.getDataFromFile();
-                System.out.println("password: " + datos);
                 this.c = DriverManager.getConnection("jdbc:mysql://localhost:3306/kidneyrejection?user=root&password="+ datos);
             } catch (IOException ex) { 
                 Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
             }
             patientManager = new SQLPatientManager(c);
           
-            //file = new SQLFilesManager(c);
         } catch (ClassNotFoundException exc) {
             exc.printStackTrace();
 

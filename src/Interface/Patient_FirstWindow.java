@@ -252,7 +252,7 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
     private void reg_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reg_butActionPerformed
         Patient_Register rd = new Patient_Register();
         this.setVisible(false);
-        rd.setVisible(true);    // TODO add your handling code here:
+        rd.setVisible(true);    
     }//GEN-LAST:event_reg_butActionPerformed
 
     private void go_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_butActionPerformed
@@ -273,9 +273,6 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
                 md.update(by);
                 byte[] hash = md.digest();
 
-                /*Patient_FirstWindow.p = new PatientSimple();
-                Patient_FirstWindow.p.setEmail(this.inputName.getText());
-                Patient_FirstWindow.p.setPas(hash);*/
                 id = FirstWindow.patientManager.checkPassword(this.inputName.getText(), hash);
                 if(id==0){
                     this.errorText.setVisible(true);
@@ -295,7 +292,7 @@ public class Patient_FirstWindow extends javax.swing.JFrame {
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
         FirstWindow rd = new FirstWindow();
         this.setVisible(false);
-        rd.setVisible(true);    // TODO add your handling code here:
+        rd.setVisible(true);    
     }//GEN-LAST:event_back_butActionPerformed
 
     /**

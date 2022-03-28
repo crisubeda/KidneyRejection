@@ -91,7 +91,6 @@ public class SQLPatientManager implements PatientManager {
             patID = rs.getInt("id");
             stm.close();
         } catch (SQLException ex) {
-            //Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
 
@@ -110,7 +109,6 @@ public class SQLPatientManager implements PatientManager {
             IDparameter = rs.getInt("id");
             stm.close();
         } catch (SQLException ex) {
-            //Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
         return IDparameter;
@@ -118,7 +116,6 @@ public class SQLPatientManager implements PatientManager {
 
     @Override
     public Integer ReturnIDoptions(String option) {
-        System.out.println("SQL option " + option);
         int IDoption = 0;
         String sqlpatient = "SELECT id FROM optionsweights WHERE opt LIKE ?";
         try {
@@ -129,14 +126,12 @@ public class SQLPatientManager implements PatientManager {
             IDoption = rs.getInt("id");
             stm.close();
         } catch (SQLException ex) {
-            //Logger.getLogger(SQLManager.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
         return IDoption;
     }
 
     public void createPatientParameters(int idPatient, int idOptions, int idParameters, int Ntest) {
-        //int Ntest = takeNtest(idPatient);
         String sqlpatient = "INSERT INTO patientparameters (id_patient, id_parameter, id_optionsWeights, Ntest)"
                 + "VALUES (?,?,?,?)";
         try {
@@ -170,10 +165,8 @@ public class SQLPatientManager implements PatientManager {
     }
 
     public void modifyNtest(int id_patient) {
-        System.out.println("Id es: " + id_patient);
         
         int Ntest = takeNtest(id_patient);
-        System.out.println("Ntest es: " + Ntest);
         String sqlpatient1 = "UPDATE patients SET Ntest=? WHERE id=?";
         try {
             PreparedStatement stm = c.prepareStatement(sqlpatient1);

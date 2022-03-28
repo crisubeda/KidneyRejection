@@ -31,11 +31,4 @@ public interface PatientManager {
     public PatientSimple searchPatientSimpleByID(int idPatient);
     public String takeOptions(int id);
     public int[] takeSelectedTest(int idPatient, int Ntest);
-    
- //   public Patient getPatientById(int id);
-
-  //  public Patient getPatientByUsername(String Username);
-
-   // public void modifyDiagnosis(Patient pat);
-
 }

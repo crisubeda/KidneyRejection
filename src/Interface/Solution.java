@@ -30,15 +30,12 @@ public class Solution extends javax.swing.JFrame {
     Patient p = new Patient();
     int cont = 0;
 
-    /**
-     * Creates new form FirstWindow
-     */
+    
     public Solution() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         int prob = (int) (Questionary.p2.getProb() * 100);
-        System.out.println("Prob en int:" + prob);
         double perc = Questionary.p2.getProb() * 100;
         this.probText.setText(" " + perc + "%");
         this.probBar.setValue(prob);
@@ -70,7 +67,7 @@ public class Solution extends javax.swing.JFrame {
         panelP.setBackground(new java.awt.Color(231, 243, 255));
 
         title.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
-        title.setText("The probabilities of rejecting the kidney are:");
+        title.setText("The probability of rejecting the kidney is:");
 
         SaveBut.setBackground(new java.awt.Color(0, 51, 153));
         SaveBut.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N

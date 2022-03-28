@@ -15,17 +15,15 @@ public class ConnectionDatabase{
         String path = file2.getAbsolutePath();
         String goodpath = file2.getAbsolutePath().substring(0, path.length() - 2).concat("/files/DataConnection.txt");
         BufferedReader br = null;
-        //String nameFile = "DataConnection.txt";
         String file_password = null;
-        try {
-            //File doc = new File("C:\\Users\\Cristina\\Documents\\NetBeansProjects\\KidneyRejection2\\files");
-            
+        try {            
             br = new BufferedReader(new FileReader(goodpath));
             file_password = br.readLine();
-           //Repetir mientras no se llegue al final del fichero
            if(file_password != null)
            {
-               System.out.println(file_password);
+               System.out.println("Correct password");
+           }else{
+               System.out.println("Look if the password is correctly writen in the file!!");
            }
         }
         catch (FileNotFoundException e) {

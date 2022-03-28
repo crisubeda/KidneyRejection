@@ -47,7 +47,7 @@ public class Questionary extends javax.swing.JFrame {
         this.error.setVisible(false);
         quest[0]= "Was the donor alive?";
         quest[1]= "Was the organ more than 19 hours out of the organisim?";
-        quest[2]= "Was the transplan more than two weeks ago? ";
+        quest[2]= "Was the transplant more than two weeks ago? ";
         quest[3]= "Was the creatinine of the donor more than 2.5?";
         quest[4]= "Does the patient present HLA Incompatibility?";
         quest[5]= "Does the patient present Fibrinoid Necrosis? ";
@@ -118,7 +118,7 @@ public class Questionary extends javax.swing.JFrame {
             }
         });
 
-        questionsText.setFont(new java.awt.Font("STKaiti", 1, 18)); // NOI18N
+        questionsText.setFont(new java.awt.Font("STKaiti", 1, 14)); // NOI18N
         questionsText.setText("Was the donor alive?");
         questionsText.setToolTipText("");
 
@@ -140,15 +140,10 @@ public class Questionary extends javax.swing.JFrame {
         panelP.setLayout(panelPLayout);
         panelPLayout.setHorizontalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPLayout.createSequentialGroup()
-                        .addComponent(questionsText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(278, 278, 278))
-                    .addGroup(panelPLayout.createSequentialGroup()
-                        .addComponent(BackBut, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(error, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37))
             .addGroup(panelPLayout.createSequentialGroup()
                 .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPLayout.createSequentialGroup()
@@ -162,12 +157,13 @@ public class Questionary extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(NextBut, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NoBut))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(error, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                            .addComponent(NoBut)))
+                    .addGroup(panelPLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(questionsText, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BackBut, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         panelPLayout.setVerticalGroup(
             panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +194,7 @@ public class Questionary extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
@@ -243,12 +239,12 @@ public class Questionary extends javax.swing.JFrame {
 
     private void YesButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YesButActionPerformed
         error.setVisible(false);
-        NoBut.setSelected(false);        // TODO add your handling code here:
+        NoBut.setSelected(false);       
     }//GEN-LAST:event_YesButActionPerformed
 
     private void NoButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoButActionPerformed
         error.setVisible(false);
-        YesBut.setSelected(false);    // TODO add your handling code here:
+        YesBut.setSelected(false);    
     }//GEN-LAST:event_NoButActionPerformed
 
     private void NextButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextButActionPerformed
@@ -271,13 +267,10 @@ public class Questionary extends javax.swing.JFrame {
         }
        if(cont==6){
            this.NextBut.setText("Finish");
-           //aqui deberiamos sumar uno al contador de tests del PatientSimple
        }else{
             this.NextBut.setText("Next");
        }
        if(cont==7){
-           System.out.println("Estamos ya introduciendo ha terminado no??");
-           System.out.println(answ[0]);
            p2 = Utilities.introd(answ);
            
            //Obtaining IDsOptions:        

@@ -150,8 +150,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_Histor_butActionPerformed
 
     private void Back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_butActionPerformed
-        // TODO add your handling code here:
-        Menu rd = new Menu();
+        FirstWindow rd = new FirstWindow();
         this.setVisible(false);
         rd.setVisible(true); 
     }//GEN-LAST:event_Back_butActionPerformed

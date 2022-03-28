@@ -170,17 +170,16 @@ public class ShowHist extends javax.swing.JFrame {
         //take names from the database
         int Ntest = FirstWindow.patientSimple.Ntest;
 
-        //ArrayList<PatientSimple> patientList = new ArrayList<>();
         for (int i = 1; i < (Ntest+1); i++) {
             model2.addElement("Test " + i);
         }
-        this.ListPatient.setModel(model2);   // TODO add your handling code here:
+        this.ListPatient.setModel(model2);   
     }//GEN-LAST:event_showTest_butActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
         Menu rd = new Menu();
         this.setVisible(false);
-        rd.setVisible(true); // TODO add your handling code here:
+        rd.setVisible(true); // 
     }//GEN-LAST:event_back_butActionPerformed
 
     private void go_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_butActionPerformed
@@ -191,14 +190,6 @@ public class ShowHist extends javax.swing.JFrame {
         Visualization rd = new Visualization();
         this.setVisible(false);
         rd.setVisible(true);
-        // coger paciente por nombre o por id a lo mejor si lo enseñamos
-
-        //si cogido--> pasamos a un menu para ver que quiere hacer
-        /*  if (received) {
-            PatientInformation rd = new PatientInformation();
-            this.setVisible(false);
-            rd.setVisible(true);
-        } // TODO add your handling code here:*/
     }//GEN-LAST:event_go_butActionPerformed
 
     /**

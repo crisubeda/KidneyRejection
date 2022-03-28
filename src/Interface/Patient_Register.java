@@ -190,17 +190,6 @@ public class Patient_Register extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(panelPLayout.createSequentialGroup()
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(inputAge, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panelPLayout.createSequentialGroup()
-                                                .addGap(26, 26, 26)
-                                                .addComponent(errorAge, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(panelPLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(errorText, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(panelPLayout.createSequentialGroup()
                                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -208,11 +197,23 @@ public class Patient_Register extends javax.swing.JFrame {
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(intputPa, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPLayout.createSequentialGroup()
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(inputGender, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(260, 260, 260)))
+                                    .addGroup(panelPLayout.createSequentialGroup()
+                                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(panelPLayout.createSequentialGroup()
+                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(inputGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPLayout.createSequentialGroup()
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(28, 28, 28)
+                                                .addComponent(inputAge, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(panelPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(panelPLayout.createSequentialGroup()
+                                                .addGap(26, 26, 26)
+                                                .addComponent(errorAge, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(panelPLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(errorText, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                 .addGap(98, 98, 98))))
                     .addGroup(panelPLayout.createSequentialGroup()
                         .addContainerGap()
@@ -314,7 +315,7 @@ public class Patient_Register extends javax.swing.JFrame {
             by[i] = (byte)this.intputPa.getPassword()[i];
            }
             md.update(by);
-            byte[] hash = md.digest(); //contraseña en hash para guardar
+            byte[] hash = md.digest(); 
         if(!isEmail){
             this.errorText.setVisible(true);
         }
@@ -337,11 +338,12 @@ public class Patient_Register extends javax.swing.JFrame {
                 }else if(this.inputGender.getSelectedIndex()==2){
                     FirstWindow.patientSimple.setSex(Sex.WOMAN);
                 }
-            //poner un if a lo mejor si hay problemas
+            
             String email = FirstWindow.patientSimple.getEmail();
             FirstWindow.patientManager.createPatientSimple(FirstWindow.patientSimple);
             FirstWindow.patientSimple.setID(FirstWindow.patientManager.checkPassword(email, hash));
-            Menu rd = new Menu();//añadir a número de test del paciente cuando le de a nuevo test
+            System.out.println(FirstWindow.patientSimple.getID());
+            Menu rd = new Menu();
             this.setVisible(false);
             rd.setVisible(true);
             }
@@ -358,7 +360,7 @@ public class Patient_Register extends javax.swing.JFrame {
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
         Patient_FirstWindow rd = new Patient_FirstWindow();
         this.setVisible(false);
-        rd.setVisible(true);   // TODO add your handling code here:
+        rd.setVisible(true);   
     }//GEN-LAST:event_back_butActionPerformed
 
     private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed

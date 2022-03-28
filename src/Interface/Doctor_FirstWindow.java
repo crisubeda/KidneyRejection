@@ -27,9 +27,7 @@ import pojosKidney.PatientSimple;
 public class Doctor_FirstWindow extends javax.swing.JFrame {
 
     public static Patient patient;
-    /**
-     * Creates new form FirstWindow
-     */
+    
     public Doctor_FirstWindow() {
         initComponents();
         patient = new Patient();
@@ -37,7 +35,7 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         this.setResizable(false);
         DefaultListModel<String> model = new DefaultListModel<>();
         JList<String> list = new JList<>(model);
-        for (int i = 0; i < 10; i++) { //size de la lista
+        for (int i = 0; i < 10; i++) { 
             model.addElement(" ");
         }
         this.ListPatient.setModel(model);
@@ -192,7 +190,7 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
         FirstWindow rd = new FirstWindow();
         this.setVisible(false);
-        rd.setVisible(true); // TODO add your handling code here:
+        rd.setVisible(true); 
     }//GEN-LAST:event_back_butActionPerformed
 
     private void search_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_butActionPerformed
@@ -205,11 +203,10 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         patientList = FirstWindow.patientManager.patientsList();
         for (int i = 0; i < patientList.size(); i++) {
             if (!patientList.get(i).name.equals("null") && patientList.get(i).name.contains(busqueda)) {
-                System.out.println("El nombre es: " + patientList.get(i).name);
                 model2.addElement(patientList.get(i).getID() + "." + patientList.get(i).name);
             }
         }
-        this.ListPatient.setModel(model2);   // TODO add your handling code here:
+        this.ListPatient.setModel(model2);   
     }//GEN-LAST:event_search_butActionPerformed
 
     private void go_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_go_butActionPerformed
@@ -217,14 +214,11 @@ public class Doctor_FirstWindow extends javax.swing.JFrame {
         int position = busqueda.indexOf(".");
         int id_busqueda = Utilities.Utilities.convertInt(busqueda.substring(0, position));
         FirstWindow.patientSimple = FirstWindow.patientManager.searchPatientSimpleByID(id_busqueda);
-        // coger paciente por nombre o por id a lo mejor si lo enseñamos 
-
-        //si cogido--> pasamos a un menu para ver que quiere hacer
-        // if (received) {
+        
             Menu rd = new Menu();
             this.setVisible(false);
             rd.setVisible(true);
-         // TODO add your handling code here:*/
+         
     }//GEN-LAST:event_go_butActionPerformed
 
     /**

@@ -30,11 +30,6 @@ import pojosKidney.TimeOutOrganism;
  */
 public class Utilities {
 
-    //public static PatientManager patientManager;
-    //public static DBManager dbManager;
-    //dbManager = new SQLManager();
-    //dbManager.connect();
-    //Patient p = new Patient();
     public static Patient introd(boolean[] ans) {
 
         KieServices ks = KieServices.Factory.get();
@@ -65,8 +60,6 @@ public class Utilities {
             p.setIl10andTNF(IL10andTNF.YES_IL10andTNF);
         }
 
-        System.out.println("Patient:" + p);
-
         execute(ks, kc, p);
         return p;
     }
@@ -74,13 +67,10 @@ public class Utilities {
     public static void execute(KieServices ks, KieContainer kc, Patient p) {
 
         KieSession ksession = kc.newKieSession("KidneyKS");
-        System.out.println("Patient with the following caracteristics: " + p + "\nHas probability of " + p.getProb() * 100 + "% to reject the kidney ");
-
+        
         ksession.insert(p);
 
         ksession.fireAllRules();
-
-        System.out.println("Patient with the following caracteristics: " + p + "\nHas probability of " + p.getProb() * 100 + "% to reject the kidney ");
 
         ksession.dispose();
 
@@ -134,7 +124,6 @@ public class Utilities {
     }
 
     public static int[] IDsOptionsCollection(String[] options, PatientManager patientManager) {
-        System.out.println("Java opstions" + options[0]);
         int[] IDs = new int[7];
         int i;
         for (i = 0; i < 7; i++) {
@@ -179,7 +168,6 @@ public class Utilities {
         String[] listOptions = new String[7];
         for(int i=0; i<ids_options.length; i++){
            listOptions[i] = patientManager.takeOptions(ids_options[i]);
-            System.out.println(listOptions[i]);
         }
        return listOptions;
     }
